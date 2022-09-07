@@ -3,84 +3,138 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
+use App\Models\Post;
+use App\Http\Requests\StoreBannerRequest;
+use App\Http\Requests\UpdateBannerRequest;
+use Illuminate\Http\Request;
+use Validator;
+use DB;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $products = Product::where('deleted_at', '=', Null)->orderBy('id', 'DESC')->latest()->paginate(5);
+
+        return view('admin.product.index',compact('products'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.product.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreProductRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
-        //
+        $fileName = '';
+        $data = [];
+        $request->validate([
+            'name' => 'required|max:255',
+            'details' => 'required|max:255',
+            'type' => 'required',
+            'price' => 'required',
+            'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image      = $request->file('image');
+            $fileName   = time() . '.' . $image->getClientOriginalExtension();
+            $ext = $request->file('image')->getClientOriginalExtension();
+
+            $img = Image::make($image->getRealPath())->encode($ext);
+            $filePath = 'images/product'.'/';
+
+            Storage::disk('public')->put($filePath . $fileName, (string) $img);
+            $data['image'] = $fileName;
+        }
+        $data['name'] = $request['name'];
+        $data['details'] = $request['details'];
+        $data['type'] = $request['type'];
+        $data['price'] = $request['price'];
+        // dd($data, $request->all());
+        Product::create($data);
+
+        return redirect()->route('product.index')
+                        ->with('success','Product created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::where('id' , $id)->get()->first();
+        return view('admin.product.show',compact('product'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
+
+    public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('admin.product.edit',compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProductRequest  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Http\Requests\Request  $request
+     * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $fileName = '';
+        $data = [];
+
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'name' => 'required|max:255',
+                'details' => 'required|max:255',
+                'type' => 'required',
+                'price' => 'required',
+                'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
+            ]);
+
+            $image      = $request->file('image');
+            $fileName   = time() . '.' . $image->getClientOriginalExtension();
+            $ext = $request->file('image')->getClientOriginalExtension();
+
+            $img = Image::make($image->getRealPath())->encode($ext);
+            $filePath = 'images/product'.'/';
+
+            Storage::disk('public')->put($filePath . $fileName, (string) $img);
+            $data['image'] = $fileName;
+        } else {
+            $request->validate([
+                'name' => 'required|max:255',
+                'details' => 'required|max:255',
+                'type' => 'required',
+                'price' => 'required'
+            ]);
+            $data['image'] = $request['current_image'];
+        }
+        $data['id'] =  $id;
+        $data['name'] = $request['name'];
+        $data['details'] = $request['details'];
+        $data['type'] = $request['type'];
+        $data['price'] = $request['price'];
+        Product::where('id' , $data['id'])
+                ->update($data);
+
+        return redirect()->route('product.index')
+                        ->with('success','Product updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        Product::find($id)->delete();
+
+        return redirect()->route('product.index')
+                        ->with('success','Product deleted successfully');
     }
 }

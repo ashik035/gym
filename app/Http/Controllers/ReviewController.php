@@ -16,7 +16,7 @@ class ReviewController extends Controller
     # This is for backend list
     public function list()
     {
-        $reviews = Review::where('deleted_at', '=', Null)->orderBy('id', 'ASC')->latest()->paginate(5);
+        $reviews = Review::where('deleted_at', '=', Null)->orderBy('id', 'DESC')->latest()->paginate(5);
 
         return view('admin.review.index',compact('reviews'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

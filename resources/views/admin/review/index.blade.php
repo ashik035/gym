@@ -46,7 +46,7 @@
 
         <table class="table table-bordered">
             <tr>
-                <th>No</th>
+                <th>Id</th>
                 <th>Reviewer</th>
                 <th>Email</th>
                 <th>Review</th>
@@ -54,7 +54,7 @@
             </tr>
             @foreach ($reviews as $review)
             <tr>
-                <td>{{ ++$i }}</td>
+                <td>{{ $review->id }}</td>
                 <td>{{ $review->name }}</td>
                 <td>{{ $review->email }}</td>
                 <td>{{ $review->details }}</td>

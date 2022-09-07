@@ -20,7 +20,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = Blog::where('deleted_at', '=', Null)->orderBy('id', 'ASC')->latest()->paginate(5);
+        $blogs = Blog::where('deleted_at', '=', Null)->orderBy('id', 'DESC')->latest()->paginate(5);
 
         return view('admin.blog.index',compact('blogs'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

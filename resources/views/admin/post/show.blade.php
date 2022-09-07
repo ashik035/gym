@@ -33,7 +33,18 @@
                     </tr>
                     <tr>
                         <td scope="col" class="text-white">Media</td>
-                        <td scope="col" class="text-white"><img src={{ asset("storage/images/post/$post->media") }} height="200px" width="200px" alt="Post"></td>
+                        <td scope="col" class="text-white">
+                            @if ( $post->type == 'image' )
+                                <img src="{{ asset("storage/images/post/$post->media") }}" height="150px" width="250px" alt="post">
+                            @elseif ( $post->type == 'video' )
+                                <video width="250" height="180" controls>
+                                    <source src="{{ asset("storage/videos/post/$post->media")}}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            @else
+                                <iframe width="250" height="180" src="{{ $post->media }}" frameborder="0" allowfullscreen></iframe>
+                            @endif
+                        </td>
                     </tr>
                 </tbody>
             </table>

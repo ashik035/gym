@@ -4,7 +4,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Product</h4>
+                <h4 class="page-title">Product Order List</h4>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
@@ -13,7 +13,7 @@
                             <li class="breadcrumb-item">
                                 <a href="#">Home</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Product</li>
+                            <li class="breadcrumb-item active" aria-current="page">Product Order List</li>
                         </ol>
                     </nav>
                 </div>
@@ -33,10 +33,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Product Lists</h2>
-                </div>
-                <div class="pull-right pb-2">
-                    <a class="btn btn-success" href="{{ route('product.create') }}"> Create New product</a>
+                    <h2>Product Ordered Lists</h2>
                 </div>
             </div>
         </div>
@@ -50,25 +47,25 @@
         <table class="table table-bordered">
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Type</th>
-                <th>Details</th>
-                <th>Image</th>
+                <th>Product</th>
+                <th>Person</th>
+                <th>Email</th>
+                <th>Paid</th>
+                <th>Mobile</th>
+                <th>Amount</th>
                 <th width="280px">Action</th>
             </tr>
             @foreach ($products as $product)
             <tr>
                 <td>{{ $product->id }}</td>
-                <td>{{ $product->name }}</td>
-                <td>{{ $product->type }}</td>
-                <td>{{ $product->details }}</td>
+                <td>{{ $product->product_id }}</td>
+                <td>{{ $product->person_name }}</td>
+                <td>{{ $product->email }}</td>
+                <td>{{ $product->paid_amount }} Tk</td>
+                <td>{{ $product->mobile }} Tk</td>
+                <td>{{ $product->product_amount }} Tk</td>
                 <td>
-                    <img src="{{ asset("storage/images/product/$product->image") }}" height="150px" width="250px" alt="product">
-                </td>
-                <td>
-                    <form action="{{ route('product.destroy',$product->id) }}" method="POST">
-                        <a class="btn btn-primary" href="{{ route('product.edit',$product->id) }}">Edit</a>
-                        <a class="btn btn-info" href="{{ route('product.show',$product->id) }}">Show</a>
+                    <form action="{{ route('product.order.destroy',$product->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
 

@@ -49,7 +49,7 @@
 
         <table class="table table-bordered">
             <tr>
-                <th>No</th>
+                <th>Id</th>
                 <th>Header</th>
                 <th>Sub Header</th>
                 <th>Image</th>
@@ -57,7 +57,7 @@
             </tr>
             @foreach ($banners as $banner)
             <tr>
-                <td>{{ ++$i }}</td>
+                <td>{{ $banner->id }}</td>
                 <td>{{ $banner->header }}</td>
                 <td>{{ $banner->sub_header }}</td>
                 <td><img src={{ asset("storage/images/banner/$banner->image") }} height="100px" width="100px" alt="banner"></td>

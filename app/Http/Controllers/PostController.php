@@ -20,7 +20,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::where('deleted_at', '=', Null)->orderBy('id', 'ASC')->latest()->paginate(5);
+        $posts = Post::where('deleted_at', '=', Null)->orderBy('id', 'DESC')->latest()->paginate(5);
 
         return view('admin.post.index',compact('posts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -50,43 +50,87 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $fileName = '';
+        $data = [];
+        if ($request->hasFile('image') || $request->hasFile('video') || (isset($request['media']) && $request['media'] != Null) ) {
+            if ($request->type == 'image') {
+                $request->validate([
+                    'title' => 'required|max:255',
+                    'details' => 'required|max:255',
+                    'type' => 'required',
+                    'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
+                ]);
+                if ($request->hasFile('image')) {
+                    $image      = $request->file('image');
+                    $fileName   = time() . '.' . $image->getClientOriginalExtension();
+                    $ext = $request->file('image')->getClientOriginalExtension();
 
-        if ($request->hasFile('image')) {
-            $request->validate([
-                'header' => 'required|max:255',
-                'sub_header' => 'required|max:255',
-                'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
-            ]);
+                    $img = Image::make($image->getRealPath())->encode($ext);
+                    $filePath = 'images/post'.'/';
 
-            $image      = $request->file('image');
-            $fileName   = time() . '.' . $image->getClientOriginalExtension();
-            $ext = $request->file('image')->getClientOriginalExtension();
+                    Storage::disk('public')->put($filePath . $fileName, (string) $img);
+                    $data['media'] = $fileName;
+                }
+            } else if ($request->type == 'video') {
+                $request->validate([
+                    'title' => 'required|max:255',
+                    'details' => 'required|max:255',
+                    'type' => 'required',
+                    'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi|max:200000'
+                ]);
+                if ($request->hasFile('video')) {
+                    $video      = $request->file('video');
+                    $fileName   = time() . '.' . $video->getClientOriginalExtension();
+                    $filePath = 'videos/post/' . $fileName;
+                    $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->file('video')));
 
-            $img = Image::make($image->getRealPath())->resize(1200, 600, function ($aspect) {
-                $aspect->aspectRatio();
-            })->encode($ext);
-            $filePath = 'images/banner'.'/';
+                    // File URL to access the video in frontend
+                    $url = Storage::disk('public')->url($filePath);
 
-            Storage::disk('public')->put($filePath . $fileName, (string) $img);
+                    // Storage::disk('public')->put($filePath . $fileName, (string) $img);
+                    $data['media'] = $fileName;
+                }
+            } else {
+                $request->validate([
+                    'title' => 'required|max:255',
+                    'details' => 'required|max:255',
+                    'type' => 'required',
+                    'media' => ['required',
+                                'max:255',
+                                'regex:/^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/i'
+                                ],
+                ]);
+
+                $url = $request['media'];
+                $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+                $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+                if (preg_match($longUrlRegex, $url, $matches)) {
+                    $youtube_id = $matches[count($matches) - 1];
+                }
+
+                if (preg_match($shortUrlRegex, $url, $matches)) {
+                    $youtube_id = $matches[count($matches) - 1];
+                }
+                $output = 'https://www.youtube.com/embed/' . $youtube_id ;
+                $data['media'] = $output;
+            }
         } else {
             $request->validate([
-                'header' => 'required|max:255',
-                'sub_header' => 'required|max:255',
+                'title' => 'required|max:255',
+                'details' => 'required|max:255',
+                'type' => 'required',
             ]);
-            $fileName = $request['current_image'];
+            $data['media'] = $request['current_media'];
         }
-
-        $data = [];
-        $data['id'] = $request['id'];
-        $data['header'] = $request['header'];
-        $data['sub_header'] = $request['sub_header'];
-        $data['image'] = $fileName;
-
+        $data['id'] =  $id;
+        $data['title'] = $request['title'];
+        $data['details'] = $request['details'];
+        $data['type'] = $request['type'];
         Post::where('id' , $data['id'])
                 ->update($data);
 
         return redirect()->route('post.index')
-                        ->with('success','Post updated successfully');
+                        ->with('success','Post updated successfully.');
     }
 
     public function destroy($id)
@@ -104,36 +148,91 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
-        $request->validate([
-            'header' => 'required|max:255',
-            'sub_header' => 'required|max:255',
-            'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
-        ]);
-
         $fileName = '';
-
-        if ($request->hasFile('image')) {
-            $image      = $request->file('image');
-            $fileName   = time() . '.' . $image->getClientOriginalExtension();
-            $ext = $request->file('image')->getClientOriginalExtension();
-
-            $img = Image::make($image->getRealPath())->resize(1200, 600, function ($aspect) {
-                $aspect->aspectRatio();
-            })->encode($ext);
-            $filePath = 'images/banner'.'/';
-
-            Storage::disk('public')->put($filePath . $fileName, (string) $img);
-        }
-
         $data = [];
-        $data['header'] = $request['header'];
-        $data['sub_header'] = $request['sub_header'];
-        $data['image'] = $fileName;
+        if ($request->type == 'image') {
+            $request->validate([
+                'title' => 'required|max:255',
+                'details' => 'required|max:255',
+                'type' => 'required',
+                'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
+            ]);
+            if ($request->hasFile('image')) {
+                $image      = $request->file('image');
+                $fileName   = time() . '.' . $image->getClientOriginalExtension();
+                $ext = $request->file('image')->getClientOriginalExtension();
 
+                $img = Image::make($image->getRealPath())->encode($ext);
+                $filePath = 'images/post'.'/';
+
+                Storage::disk('public')->put($filePath . $fileName, (string) $img);
+                $data['media'] = $fileName;
+            }
+        } else if ($request->type == 'video') {
+            $request->validate([
+                'title' => 'required|max:255',
+                'details' => 'required|max:255',
+                'type' => 'required',
+                'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi|max:200000'
+            ]);
+            if ($request->hasFile('video')) {
+                $video      = $request->file('video');
+                $fileName   = time() . '.' . $video->getClientOriginalExtension();
+                $filePath = 'videos/post/' . $fileName;
+                $isFileUploaded = Storage::disk('public')->put($filePath, file_get_contents($request->file('video')));
+
+                // File URL to access the video in frontend
+                $url = Storage::disk('public')->url($filePath);
+
+                // Storage::disk('public')->put($filePath . $fileName, (string) $img);
+                $data['media'] = $fileName;
+            }
+        } else {
+            $request->validate([
+                'title' => 'required|max:255',
+                'details' => 'required|max:255',
+                'type' => 'required',
+                'media' => ['required',
+                            'max:255',
+                            'regex:/^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/i'
+                            ],
+            ]);
+
+            $url = $request['media'];
+            $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+            $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+            if (preg_match($longUrlRegex, $url, $matches)) {
+                $youtube_id = $matches[count($matches) - 1];
+            }
+
+            if (preg_match($shortUrlRegex, $url, $matches)) {
+                $youtube_id = $matches[count($matches) - 1];
+            }
+            $output = 'https://www.youtube.com/embed/' . $youtube_id ;
+            $data['media'] = $output;
+        }
+        $data['title'] = $request['title'];
+        $data['details'] = $request['details'];
+        $data['type'] = $request['type'];
         Post::create($data);
 
         return redirect()->route('post.index')
                         ->with('success','Post created successfully.');
+    }
+
+    function getYoutubeEmbedUrl($url)
+    {
+        $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_-]+)\??/i';
+        $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))([a-zA-Z0-9_-]+)/i';
+
+        if (preg_match($longUrlRegex, $url, $matches)) {
+            $youtube_id = $matches[count($matches) - 1];
+        }
+
+        if (preg_match($shortUrlRegex, $url, $matches)) {
+            $youtube_id = $matches[count($matches) - 1];
+        }
+        return 'https://www.youtube.com/embed/' . $youtube_id ;
     }
 }

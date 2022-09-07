@@ -16,7 +16,7 @@
         <div class="col-xs-8 offset-md-2 offset-xs-2 offset-sm-2 col-sm-8 col-md-8">
             <div class="form-group">
                 <strong>Post Title:</strong>
-                <input type="text" class="form-control" name="title"/>
+                <input type="text" class="form-control" value="{{ old('title') }}" name="title"/>
                 @if ($errors->has('title'))
                     <span role="alert">
                         <strong class="text-danger">{{ $errors->first('title') }}</strong>
@@ -40,9 +40,9 @@
                 <strong>Post Type:</strong>
                 <select class="form-control" name="type" id="type">
                     <option value="">Select a Type</option>
-                    <option value="image">Image</option>
-                    <option value="video">Video</option>
-                    <option value="youtube">Yutube</option>
+                    <option value="image" <?php echo (old('type') == 'image') ? 'selected' : '' ?> >Image</option>
+                    <option value="video" <?php echo (old('type') == 'video') ? 'selected' : '' ?> >Video</option>
+                    <option value="youtube" <?php echo (old('type') == 'youtube') ?  'selected' : '' ?>>Yutube</option>
                 </select>
                 @if ($errors->has('type'))
                     <span role="alert">
@@ -54,25 +54,25 @@
         <div class="col-xs-8 col-sm-8 col-md-8 offset-md-2 offset-xs-2 offset-sm-2">
             <div class="form-group" id="media_part1">
                 <strong>Image:</strong>
-                <input type="file" name="media">
-                @if ($errors->has('media'))
+                <input type="file" name="image">
+                @if ($errors->has('image'))
                     <span role="alert">
-                        <strong class="text-danger">{{ $errors->first('media') }}</strong>
+                        <strong class="text-danger">{{ $errors->first('image') }}</strong>
                     </span>
                 @endif
             </div>
             <div class="form-group" id="media_part2">
                 <strong>Video:</strong>
-                <input type="file" name="media">
-                @if ($errors->has('media'))
+                <input type="file" name="video">
+                @if ($errors->has('video'))
                     <span role="alert">
-                        <strong class="text-danger">{{ $errors->first('media') }}</strong>
+                        <strong class="text-danger">{{ $errors->first('video') }}</strong>
                     </span>
                 @endif
             </div>
             <div class="form-group" id="media_part3">
                 <strong>Youtube URL:</strong>
-                <input type="text" class="form-control"  name="media"/>
+                <input type="text" class="form-control" value="{{ old('media') }}" name="media"/>
                 @if ($errors->has('media'))
                     <span role="alert">
                         <strong class="text-danger">{{ $errors->first('media') }}</strong>
@@ -89,9 +89,24 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
     $( document ).ready(function() {
-        $('#media_part1').hide()
-        $('#media_part2').hide()
-        $('#media_part3').hide()
+        val = $('#type').val()
+        if (val == 'image') {
+            $('#media_part2').hide()
+            $('#media_part3').hide()
+            $('#media_part1').show()
+        } else if (val == 'video') {
+            $('#media_part1').hide()
+            $('#media_part3').hide()
+            $('#media_part2').show()
+        } else if (val == 'youtube') {
+            $('#media_part1').hide()
+            $('#media_part2').hide()
+            $('#media_part3').show()
+        } else {
+            $('#media_part1').hide()
+            $('#media_part2').hide()
+            $('#media_part3').hide()
+        }
         $('#type').on('change', function() {
             var val =  $(this).find(":selected").val()
             if (val == 'image') {

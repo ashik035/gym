@@ -149,19 +149,19 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{route('banner.index') }}
                                 aria-expanded="false">
-                                <i class="mdi mdi-av-timer"></i>
+                                <i class="mdi mdi-border-none"></i>
                                 <span class="hide-menu">Banner</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{ route('post.index') }}
                                 aria-expanded="false">
-                                <i class="mdi mdi-face"></i>
+                                <i class="mdi mdi-note"></i>
                                 <span class="hide-menu">Posts</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{ route('banner.index') }}
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{ route('course.index') }}
                                 aria-expanded="false">
                                 <i class="mdi mdi-account-network"></i>
                                 <span class="hide-menu">Course</span>
@@ -174,17 +174,24 @@
                                 <span class="hide-menu">About Me</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        {{-- <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{ route('admin.address') }}
                                 aria-expanded="false">
-                                <i class="mdi mdi-border-none"></i>
+                                <i class="mdi mdi-map-marker"></i>
                                 <span class="hide-menu">Address</span>
+                            </a>
+                        </li> --}}
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{ route('product.index') }}
+                                aria-expanded="false">
+                                <i class="mdi mdi-cart"></i>
+                                <span class="hide-menu">Products</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{route('blog.index') }}
                                 aria-expanded="false">
-                                <i class="mdi mdi-file"></i>
+                                <i class="mdi mdi-application"></i>
                                 <span class="hide-menu">Blog</span>
                             </a>
                         </li>
@@ -196,12 +203,26 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{route('course.request.list') }}
                                 aria-expanded="false">
-                                <i class="mdi mdi-account-network"></i>
-                                <span class="hide-menu">User</span>
+                                <i class="mdi mdi-account-check"></i>
+                                <span class="hide-menu">Course Requests</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{route('product.order.list') }}
+                                aria-expanded="false">
+                                <i class="mdi mdi-basket"></i>
+                                <span class="hide-menu">Ordered Products</span>
+                            </a>
+                        </li>
+                        {{-- <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
+                                aria-expanded="false">
+                                <i class="mdi mdi-face"></i>
+                                <span class="hide-menu">User</span>
+                            </a>
+                        </li> --}}
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

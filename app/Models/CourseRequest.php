@@ -6,16 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Product extends Model
+class CourseRequest extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [
-        'name',
-        'type',
-        'details',
-        'price',
-        'image'
+        'course_id',
+        'person_name',
+        'email',
+        'paid_amount',
+        'mobile'
     ];
 }

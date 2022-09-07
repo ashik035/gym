@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
     Route::get('/admin/about', [App\Http\Controllers\HomeController::class, 'about'])->name('admin.about');
-    Route::get('/admin/address', [App\Http\Controllers\HomeController::class, 'address'])->name('admin.address');
+    // Route::get('/admin/address', [App\Http\Controllers\HomeController::class, 'address'])->name('admin.address');
     Route::get('/admin/menu', [App\Http\Controllers\HomeController::class, 'menu'])->name('admin.menu');
     // Route::get('/admin/post', [App\Http\Controllers\HomeController::class, 'post'])->name('admin.post');
     Route::post('/admin/about/update', [App\Http\Controllers\AboutController::class, 'update'])->name('admin.about.update');
@@ -72,5 +72,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('/admin/review/destroy/{id}', [App\Http\Controllers\ReviewController::class, 'destroy'])->name('review.destroy');
     Route::resource('/admin/product', App\Http\Controllers\ProductController::class);
     Route::resource('/admin/course', App\Http\Controllers\CourseController::class);
+
+
+    Route::get('/admin/product/order/list', [App\Http\Controllers\ProductOrderController::class, 'index'])->name('product.order.list');
+    Route::post('/product/order', [App\Http\Controllers\ProductOrderController::class, 'store'])->name('product.order');
+    Route::delete('/admin/product/order/destroy/{id}', [App\Http\Controllers\ProductOrderController::class, 'destroy'])->name('product.order.destroy');
+
+    Route::get('/admin/course/request/list', [App\Http\Controllers\CourseRequestController::class, 'index'])->name('course.request.list');
+    Route::post('/course/request', [App\Http\Controllers\CourseRequestController::class, 'store'])->name('course.request');
+    Route::delete('/admin/course/request/destroy/{id}', [App\Http\Controllers\CourseRequestController::class, 'destroy'])->name('course.request.destroy');
 
 });

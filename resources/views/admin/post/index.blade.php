@@ -49,7 +49,7 @@
 
         <table class="table table-bordered">
             <tr>
-                <th>No</th>
+                <th>Id</th>
                 <th>Title</th>
                 <th>Type</th>
                 <th>Details</th>
@@ -58,11 +58,22 @@
             </tr>
             @foreach ($posts as $post)
             <tr>
-                <td>{{ ++$i }}</td>
+                <td>{{ $post->id }}</td>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->type }}</td>
                 <td>{{ $post->details }}</td>
-                <td><img src={{ asset("storage/images/post/$post->media") }} height="100px" width="100px" alt="post"></td>
+                <td>
+                    @if ( $post->type == 'image' )
+                        <img src="{{ asset("storage/images/post/$post->media") }}" height="150px" width="250px" alt="post">
+                    @elseif ( $post->type == 'video' )
+                        <video width="250" height="180" controls>
+                            <source src="{{ asset("storage/videos/post/$post->media")}}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    @else
+                        <iframe width="250" height="180" src="{{ $post->media }}" frameborder="0" allowfullscreen></iframe>
+                    @endif
+                </td>
                 <td>
                     <form action="{{ route('post.destroy',$post->id) }}" method="POST">
                         <a class="btn btn-primary" href="{{ route('post.edit',$post->id) }}">Edit</a>

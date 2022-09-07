@@ -20,7 +20,7 @@ class BannerController extends Controller
 
     public function index()
     {
-        $banners = Banner::where('deleted_at', '=', Null)->orderBy('id', 'ASC')->latest()->paginate(5);
+        $banners = Banner::where('deleted_at', '=', Null)->orderBy('id', 'DESC')->latest()->paginate(5);
 
         return view('admin.banner.index',compact('banners'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

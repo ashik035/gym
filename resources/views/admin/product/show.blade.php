@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb mb-5 mt-4 text-center">
             <div class="pull-left">
-                <h2> Showing Banner Details</h2>
+                <h2> Showing Product Details</h2>
             </div>
         </div>
     </div>
@@ -20,16 +20,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="col" class="text-white">Header</td>
-                        <td>{{ $banner->header }}</td>
+                        <td scope="col" class="text-white">Title</td>
+                        <td>{{ $product->title }}</td>
                     </tr>
                     <tr>
-                        <td scope="col" class="text-white">Sub Header</td>
-                        <td>{{ $banner->sub_header }}</td>
+                        <td scope="col" class="text-white">Type</td>
+                        <td>{{ $product->type }}</td>
                     </tr>
                     <tr>
-                        <td scope="col" class="text-white">Image</td>
-                        <td scope="col" class="text-white"><img src={{ asset("storage/images/banner/$banner->image") }} height="200px" width="200px" alt="banner"></td>
+                        <td scope="col" class="text-white">Details</td>
+                        <td>{{ $product->details }}</td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-white">Media</td>
+                        <td scope="col" class="text-white">
+                            <img src="{{ asset("storage/images/product/$product->media") }}" height="150px" width="250px" alt="product">
+                        </td>
                     </tr>
                 </tbody>
             </table>

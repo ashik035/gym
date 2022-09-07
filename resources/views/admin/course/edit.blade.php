@@ -4,57 +4,78 @@
 <div class="row">
     <div class="col-lg-12 margin-tb mt-4 text-center">
         <div class="pull-left">
-            <h2>Edit Banner</h2>
+            <h2>Edit Course</h2>
         </div>
     </div>
 </div>
 
-<form action="{{ route('admin.banner.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('course.update', $course->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
 
     <div class="row">
         <div class="col-xs-8 offset-md-2 offset-xs-2 offset-sm-2 col-sm-8 col-md-8">
             <div class="form-group">
-                <strong>Banner Header:</strong>
-                <textarea class="form-control" style="height:150px" name="header" placeholder="Add sub header">{{ $banner->header }}</textarea>
-                @if ($errors->has('header'))
+                <strong>Menu Name:</strong>
+                <select class="form-control" name="menu_name">
+                    <option value="">Select a Menu</option>
+                    <option value="program" <?php echo (old('menu_name').@$course->menu_name == 'program') ? 'selected' : '' ?> >Program</option>
+                    <option value="online_live" <?php echo (old('menu_name').@$course->menu_name == 'online_live') ? 'selected' : '' ?> >Online Live Group Class</option>
+                </select>
+                @if ($errors->has('menu_name'))
                     <span role="alert">
-                        <strong class="text-danger">{{ $errors->first('header') }}</strong>
+                        <strong class="text-danger">{{ $errors->first('menu_name') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+        <div class="col-xs-8 offset-md-2 offset-xs-2 offset-sm-2 col-sm-8 col-md-8">
+            <div class="form-group">
+                <strong>Name:</strong>
+                <input type="text" class="form-control" value="{{ old('name').@$course->name }}" name="name"/>
+                @if ($errors->has('name'))
+                    <span role="alert">
+                        <strong class="text-danger">{{ $errors->first('name') }}</strong>
                     </span>
                 @endif
             </div>
         </div>
         <div class="col-xs-8 col-sm-8 col-md-8 offset-md-2 offset-xs-2 offset-sm-2">
             <div class="form-group">
-                <strong>Sub Header:</strong>
-                <textarea class="form-control" style="height:150px" name="sub_header" placeholder="Add sub header">{{ $banner->sub_header }}</textarea>
-                @if ($errors->has('sub_header'))
+                <strong>Included Features:</strong>
+                <textarea class="form-control" style="height:150px" placeholder="Add comma to add more feature" name="included">{{ old('included').@$course->included }}</textarea>
+                @if ($errors->has('included'))
                     <span role="alert">
-                        <strong class="text-danger">{{ $errors->first('sub_header') }}</strong>
+                        <strong class="text-danger">{{ $errors->first('included') }}</strong>
                     </span>
                 @endif
             </div>
         </div>
-        <div class="col-xs-8 col-sm-8 col-md-8 offset-md-2 offset-xs-2 offset-sm-2 mb-3">
+        <div class="col-xs-8 offset-md-2 offset-xs-2 offset-sm-2 col-sm-8 col-md-8">
             <div class="form-group">
-                <strong>Current Image: </strong>
-                <td><img src={{ asset("storage/images/banner/$banner->image") }} height="80px" width="80px" alt="banner"></td>
-                <input type="hidden" name="current_image" value="{{ $banner->image }}">
+                <strong>Course Fee:</strong>
+                <input type="number" class="form-control" value="{{ old('price').@$course->price }}" name="price"/>
+                @if ($errors->has('price'))
+                    <span role="alert">
+                        <strong class="text-danger">{{ $errors->first('price') }}</strong>
+                    </span>
+                @endif
             </div>
+        </div>
+        <div class="col-xs-8 offset-md-2 offset-xs-2 offset-sm-2 col-sm-8 col-md-8">
             <div class="form-group">
-                <strong>Image:</strong>
-                <input type="file" name="image">
+                <strong>Course Duration:</strong>
+                <input type="number" class="form-control" value="{{ old('duration').@$course->duration }}" name="duration"/>
+                @if ($errors->has('duration'))
+                    <span role="alert">
+                        <strong class="text-danger">{{ $errors->first('duration') }}</strong>
+                    </span>
+                @endif
             </div>
-            @if ($errors->has('image'))
-                <span role="alert">
-                    <strong class="text-danger">{{ $errors->first('image') }}</strong>
-                </span>
-            @endif
         </div>
         <div class="col-xs-8 col-sm-8 col-md-8 text-center offset-md-2 offset-xs-2 offset-sm-2">
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>
-
 </form>
 @endsection

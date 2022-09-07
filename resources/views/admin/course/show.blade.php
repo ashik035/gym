@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb mb-5 mt-4 text-center">
             <div class="pull-left">
-                <h2> Showing Banner Details</h2>
+                <h2> Showing Course Details</h2>
             </div>
         </div>
     </div>
@@ -20,16 +20,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td scope="col" class="text-white">Header</td>
-                        <td>{{ $banner->header }}</td>
+                        <td scope="col" class="text-white">Menu Name</td>
+                        <td>{{ $course->menu_name }}</td>
                     </tr>
                     <tr>
-                        <td scope="col" class="text-white">Sub Header</td>
-                        <td>{{ $banner->sub_header }}</td>
+                        <td scope="col" class="text-white">Course Name</td>
+                        <td>{{ $course->name }}</td>
                     </tr>
                     <tr>
-                        <td scope="col" class="text-white">Image</td>
-                        <td scope="col" class="text-white"><img src={{ asset("storage/images/banner/$banner->image") }} height="200px" width="200px" alt="banner"></td>
+                        <td scope="col" class="text-white">Price</td>
+                        <td>{{ $course->price }}</td>
+                    </tr>
+                    <tr>
+                        <td scope="col" class="text-white">duration</td>
+                        <td scope="col" class="text-white">
+                            {{ $course->duration }} months
+                        </td>
                     </tr>
                 </tbody>
             </table>

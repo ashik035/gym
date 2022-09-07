@@ -4,7 +4,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Banner</h4>
+                <h4 class="page-title">Course</h4>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
@@ -13,7 +13,7 @@
                             <li class="breadcrumb-item">
                                 <a href="#">Home</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Banner</li>
+                            <li class="breadcrumb-item active" aria-current="page">Course</li>
                         </ol>
                     </nav>
                 </div>
@@ -33,10 +33,10 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Banner Lists</h2>
+                    <h2>Course Lists</h2>
                 </div>
                 <div class="pull-right pb-2">
-                    <a class="btn btn-success" href="{{ route('admin.banner.create') }}"> Create New banner</a>
+                    <a class="btn btn-success" href="{{ route('course.create') }}"> Create New Course</a>
                 </div>
             </div>
         </div>
@@ -49,25 +49,26 @@
 
         <table class="table table-bordered">
             <tr>
-                <th>No</th>
-                <th>Header</th>
-                <th>Sub Header</th>
-                <th>Image</th>
+                <th>Id</th>
+                <th>Menu</th>
+                <th>Course</th>
+                <th>Price</th>
+                <th>Duration</th>
                 <th width="280px">Action</th>
             </tr>
-            @foreach ($banners as $banner)
+            @foreach ($courses as $course)
             <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $banner->header }}</td>
-                <td>{{ $banner->sub_header }}</td>
-                <td><img src={{ asset("storage/images/banner/$banner->image") }} height="100px" width="100px" alt="banner"></td>
+                <td>{{ $course->id }}</td>
+                <td>{{ $course->menu_name }}</td>
+                <td>{{ $course->name }}</td>
+                <td>{{ $course->price }}</td>
+                <td>{{ $course->duration }} months</td>
                 <td>
-                    <form action="{{ route('admin.banner.destroy',$banner->id) }}" method="POST">
-                        <a class="btn btn-primary" href="{{ route('admin.banner.edit',$banner->id) }}">Edit</a>
-                        <a class="btn btn-info" href="{{ route('admin.banner.show',$banner->id) }}">Show</a>
+                    <form action="{{ route('course.destroy',$course->id) }}" method="POST">
+                        <a class="btn btn-primary" href="{{ route('course.edit',$course->id) }}">Edit</a>
+                        <a class="btn btn-info" href="{{ route('course.show',$course->id) }}">Show</a>
                         @csrf
                         @method('DELETE')
-
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
@@ -77,7 +78,7 @@
         <div class="row">
             <div class="d-flex mb-5">
                 <div class="mx-auto">
-                    {{$banners->links("pagination::bootstrap-4")}}
+                    {{$courses->links("pagination::bootstrap-4")}}
                 </div>
             </div>
         </div>

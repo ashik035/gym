@@ -49,7 +49,7 @@
 
         <table class="table table-bordered">
             <tr>
-                <th>No</th>
+                <th>Id</th>
                 <th>Title</th>
                 <th>Details</th>
                 <th>Image</th>
@@ -57,7 +57,7 @@
             </tr>
             @foreach ($blogs as $blog)
             <tr>
-                <td>{{ ++$i }}</td>
+                <td>{{ $blog->id }}</td>
                 <td>{{ $blog->title }}</td>
                 <td>{{ $blog->details }}</td>
                 <td><img src={{ asset("storage/images/blog/$blog->image") }} height="100px" width="100px" alt="blog"></td>
