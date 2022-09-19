@@ -83,7 +83,7 @@
                 </div>
                 <div id="cssmenu" class="t-left">
                     <ul>
-                        <li class="active"><a href="index.html"><span>Program</span></a>
+                        <li class="active has-sub"><a href="/"><span>Program</span></a>
                             <ul>
                                 <li class="has-sub"><a href="/program/one-on-one"><span>One-on-One Training</span></a></li>
                                 <li class="has-sub"><a href="/program/online-fitness-coaching-for-general"><span>Online Fitness Coaching for General</span></a></li>
@@ -94,23 +94,23 @@
                                 <li class="has-sub"><a href="/program/customize-workout-diet"><span>Customize Workout Diet</span></a></li>
                             </ul>
                         </li>
-                        <li class="has-sub"><a href="#"><span>Online Live Group Class</span></a>
+                        <li class="has-sub"><a href="/"><span>Online Live Group Class</span></a>
                             <ul>
                                 <li class="has-sub"><a href="#"><span>3 Days In a Week</span></a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="index.html"><span>Shop</span></a>
+                        <li><a href="/"><span>Shop</span></a>
                             <ul>
                                 <li><a href="/shop/shop-all"><span>Shop All</span></a></li>
                                 <li><a href="#"><span>Accessories</span></a></li>
                                 <li class="last"><a href="#"><span>Apparel</span></a></li>
                             </ul>
                         </li>
-                        <li><a href=""><span>Reviews</span></a></li>
-                        <li><a href=""><span>Blog</span></a></li>
-                        <li><a href=""><span>About</span></a></li>
-                        <li class="last"><a href="contact.html"><span>Contact</span></a></li>
+                        <li><a href="/review"><span>Reviews</span></a></li>
+                        <li><a href="/blog"><span>Blog</span></a></li>
+                        <li><a href="#footer"><span>About</span></a></li>
+                        <li class="last"><a href="/contact"><span>Contact</span></a></li>
                     </ul>
                 </div>
             </header>
@@ -119,6 +119,91 @@
         <main>
             @yield('content')
         </main>
+        <footer id="footer">
+            <div class="zerogrid wrap-footer">
+                <div class="row">
+                    <div class="col-1-4 col-footer-1">
+                        <div class="wrap-col">
+                            <h3 class="widget-title">About Me</h3>
+                            <p>Professional & personal fitness trainer,to assist clients in all fitness levels to get into shape & achieve goal.
+                                I offer clients with customized meal plan,workout program,supplement guideline
+                                & progress monitoring for achieving the perfect desired shape!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-1-4 col-footer-2">
+                        <div class="wrap-col">
+                            <h3 class="widget-title">Recent Post</h3>
+                            <ul>
+                                <li><a href="#">BEST WORKOUT VIDEOS</a></li>
+                                <li><a href="#">5 WAYS TO BE FIT</a></li>
+                                <li><a href="#">HOW TO START</a></li>
+                                <li><a href="#">SUPPLEMENTS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-1-4 col-footer-3">
+                        <div class="wrap-col">
+                            <h3 class="widget-title">Tag Cloud</h3>
+                            <a href="#">trainer</a>
+                            <a href="#">workout</a>
+                            <a href="#">countries</a>
+                            <a href="#">healthy</a>
+                            <a href="#">food</a>
+                            <a href="#">home</a>
+                            <a href="#">traing</a>
+                            <a href="#">photo</a>
+                            <a href="#">fit</a>
+                            <a href="#">law</a>
+                            <a href="#">fitness</a>
+                            <a href="#">skate</a>
+                            <a href="#">scholl</a>
+                            <a href="#">video</a>
+                            <a href="#">travel</a>
+                            <a href="#">images</a>
+                            <a href="#">gym</a>
+                        </div>
+                    </div>
+                    <div class="col-1-4 col-footer-4">
+                        <div class="wrap-col">
+                            <h3 class="widget-title">Where to Find Me</h3>
+                            <div class="row">
+                                <address>
+                                    <strong>sector 4, Uttara,</strong>
+                                    <br>
+                                    Dhaka
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="zerogrid wrapper">
+                    Copyright @ AB Shiddique Fitness - Designed by <a href="/">AB</a></a>
+                    <ul class="quick-link">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script src="{{ asset('js/owl-carousel/owl.carousel.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $("#owl-slide").owlCarousel({
+                autoPlay: 3000,
+                items : 1,
+                itemsDesktop : [1199,1],
+                itemsDesktopSmall : [979,1],
+                itemsTablet : [768, 1],
+                itemsMobile : [479, 1],
+                navigation: true,
+                navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+                pagination: false
+                });
+            });
+        </script>
     </div>
 </body>
 </html>

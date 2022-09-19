@@ -48,6 +48,16 @@ Route::get('/online-live-class', function () {
     return view('frontend.online-live-class');
 });
 
+Route::get('/contact', function () {
+    return view('frontend.contact');
+})->name('contact');
+Route::post('/contact/post', [App\Http\Controllers\ContactController::class, 'contactPost'])->name('contact.post');
+
+Route::get('/review', function () {
+    return view('frontend.review');
+})->name('review');
+Route::post('/review/post', [App\Http\Controllers\ReviewController::class, 'reviewPost'])->name('review.post');
+
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
 
@@ -70,6 +80,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/admin/blog', App\Http\Controllers\BlogController::class);
     Route::get('/admin/review/list', [App\Http\Controllers\ReviewController::class, 'list'])->name('review.list');
     Route::delete('/admin/review/destroy/{id}', [App\Http\Controllers\ReviewController::class, 'destroy'])->name('review.destroy');
+    Route::get('/admin/contact/list', [App\Http\Controllers\ContactController::class, 'list'])->name('contact.list');
+    Route::delete('/admin/contact/destroy/{id}', [App\Http\Controllers\ContactController::class, 'destroy'])->name('contact.destroy');
     Route::resource('/admin/product', App\Http\Controllers\ProductController::class);
     Route::resource('/admin/course', App\Http\Controllers\CourseController::class);
 

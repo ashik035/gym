@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class ReviewController extends Controller
+class ContactController extends Controller
 {
     public function __construct()
     {
@@ -15,35 +15,36 @@ class ReviewController extends Controller
     # This is for backend list
     public function list()
     {
-        $reviews = Review::where('deleted_at', '=', Null)->orderBy('id', 'DESC')->latest()->paginate(5);
+        $contacts = Contact::where('deleted_at', '=', Null)->orderBy('id', 'DESC')->latest()->paginate(5);
 
-        return view('admin.review.index',compact('reviews'))
+        return view('admin.Contact.index',compact('contacts'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function destroy($id)
     {
-        Review::find($id)->delete();
+        Contact::find($id)->delete();
 
-        return redirect()->route('review.list')
-                        ->with('success','Review deleted successfully');
+        return redirect()->route('contact.list')
+                        ->with('success','Contact deleted successfully');
     }
 
-    public function reviewPost(Request $request){
+    public function contactPost(Request $request){
         $data = [];
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
             'subject' => 'required|max:255',
-            'details' => 'required'
+            'message' => 'required'
         ]);
 
         $data['name'] = $request['name'];
         $data['email'] = $request['email'];
         $data['subject'] = $request['subject'];
-        $data['details'] = $request['details'];
-        Review::create($data);
+        $data['message'] = $request['message'];
 
-        return redirect()->route('review');
+        Contact::create($data);
+
+        return redirect()->route('contact');
     }
 }

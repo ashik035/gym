@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Banner;
 use App\Models\Post;
+use App\Models\Contact;
 
 use Illuminate\Http\Request;
 

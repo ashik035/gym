@@ -83,8 +83,6 @@ class CourseController extends Controller
     public function update(Request $request, $id)
     {
         $data = [];
-
-        $data = [];
         $request->validate([
             'menu_name' => 'required|max:255',
             'sub_menu' => 'required|max:255',

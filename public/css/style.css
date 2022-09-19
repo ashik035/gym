@@ -805,7 +805,7 @@ a.button:hover {
 }
 
 .box-entry:hover {
-  border-bottom: 4px solid #9BB70D;
+  border-bottom: 4px solid rgba(64, 54, 182, 0.9);
 }
 
 @media only screen and (max-width: 767px) {

@@ -4,7 +4,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-5 align-self-center">
-                <h4 class="page-title">Review</h4>
+                <h4 class="page-title">Contact</h4>
             </div>
             <div class="col-7 align-self-center">
                 <div class="d-flex align-items-center justify-content-end">
@@ -13,7 +13,7 @@
                             <li class="breadcrumb-item">
                                 <a href="#">Home</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Review</li>
+                            <li class="breadcrumb-item active" aria-current="page">Contact</li>
                         </ol>
                     </nav>
                 </div>
@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Review Lists</h2>
+                    <h2>Contact Lists</h2>
                 </div>
             </div>
         </div>
@@ -47,21 +47,21 @@
         <table class="table table-bordered">
             <tr>
                 <th>Id</th>
-                <th>Reviewer</th>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Subject</th>
-                <th>Review</th>
-                <th width="280px">Action</th>
+                <th width="250px">Message</th>
+                <th width="100px">Action</th>
             </tr>
-            @foreach ($reviews as $review)
+            @foreach ($contacts as $Contact)
             <tr>
-                <td>{{ $review->id }}</td>
-                <td>{{ $review->name }}</td>
-                <td>{{ $review->email }}</td>
-                <td>{{ $review->subject }}</td>
-                <td>{{ $review->details }}</td>
+                <td>{{ $Contact->id }}</td>
+                <td>{{ $Contact->name }}</td>
+                <td>{{ $Contact->email }}</td>
+                <td>{{ $Contact->subject }}</td>
+                <td>{{ $Contact->message }}</td>
                 <td>
-                    <form action="{{ route('review.destroy',$review->id) }}" method="POST">
+                    <form action="{{ route('contact.destroy',$Contact->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -73,7 +73,7 @@
         <div class="row">
             <div class="d-flex mb-5">
                 <div class="mx-auto">
-                    {{$reviews->links("pagination::bootstrap-4")}}
+                    {{$contacts->links("pagination::bootstrap-4")}}
                 </div>
             </div>
         </div>

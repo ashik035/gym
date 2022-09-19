@@ -203,6 +203,13 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{route('contact.list') }}
+                                aria-expanded="false">
+                                <i class="mdi mdi-av-timer"></i>
+                                <span class="hide-menu">Contact</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{route('course.request.list') }}
                                 aria-expanded="false">
                                 <i class="mdi mdi-account-check"></i>
