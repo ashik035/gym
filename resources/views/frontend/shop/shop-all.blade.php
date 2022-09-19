@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrap-body">
-        <header>
+        {{-- <header>
             <div class="top-header">
                 <div class="zerogrid">
                     <div class="row">
@@ -60,7 +60,7 @@
                     <li class="last"><a href="contact.html"><span>Contact</span></a></li>
                 </ul>
             </div>
-        </header>
+        </header> --}}
 
 
         <div class="one-on-one">
@@ -149,7 +149,7 @@
                           </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 

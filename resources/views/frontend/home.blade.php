@@ -3,63 +3,6 @@
 @section('content')
     <div class="wrap-body">
         <header>
-            <div class="top-header">
-                <div class="zerogrid">
-                    <div class="row">
-                        <div class="col-1-3">
-                            <div class="wrap-col">
-                                <span><i class="fa fa-map-marker"></i> <strong>Sector-4, Uttara</strong>, Dhaka-1230, Bangladesh</span>
-                            </div>
-                        </div>
-                        <div class="col-1-3">
-                            <div class="wrap-col">
-                                <span><i class="fa fa-phone"></i> 01740096478</span>
-                            </div>
-                        </div>
-                        <div class="col-1-3">
-                            <div class="wrap-col">
-                                <span><i class="fa fa-clock-o"></i> Sat-Thu 8:00am-02:00pm, Fri 8:00am-10:00pm</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="logo">
-                <a href="#">AB Shiddique Fitness</a>
-                <span>The Best Fitness Grow Your Strenght</span>
-            </div>
-            <div id="cssmenu" class="t-left">
-                <ul>
-                    <li class="active"><a href="index.html"><span>Program</span></a>
-                        <ul>
-                            <li class="has-sub"><a href="/program/one-on-one"><span>One-on-One Training</span></a></li>
-                            <li class="has-sub"><a href="/program/online-fitness-coaching-for-general"><span>Online Fitness Coaching for General</span></a></li>
-                            <li class="has-sub"><a href="/program/PCOS"><span>PCOS(Poly-Cystic Ovarian Syndrome)</span></a></li>
-                            <li class="has-sub"><a href="/program/HDDA"><span>Heart Disease Diabetes Arthritis</span></a></li>
-                            <li class="has-sub"><a href="/program/exersize-and-diet"><span>Exersize and Diet For Older Adults</span></a></li>
-                            <li class="has-sub"><a href="/program/customize-diet-plan"><span>Customize Diet Plan</span></a></li>
-                            <li class="has-sub"><a href="/program/customize-workout-diet"><span>Customize Workout Diet</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub"><a href="#"><span>Online Live Group Class</span></a>
-                        <ul>
-                            <li class="has-sub"><a href="#"><span>3 Days In a Week</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="index.html"><span>Shop</span></a>
-                        <ul>
-                            <li><a href="/shop/shop-all"><span>Shop All</span></a></li>
-                            <li><a href="#"><span>Accessories</span></a></li>
-                            <li class="last"><a href="#"><span>Apparel</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href=""><span>Reviews</span></a></li>
-                    <li><a href=""><span>Blog</span></a></li>
-                    <li><a href=""><span>About</span></a></li>
-                    <li class="last"><a href="contact.html"><span>Contact</span></a></li>
-                </ul>
-            </div>
             <div id="owl-slide" class="owl-carousel">
                 @foreach ($banners as $banner)
                     <div class="item">
@@ -69,34 +12,11 @@
                             <div class="col-md-12 text-left">
                                 <h1>{{ $banner->header }}</h1>
                                 <p>{{ $banner->sub_header }}</p>
-                                <a class="button" href="single.html">Let's Start!</a>
+                                <a class="button" href="/">Let's Start!</a>
                             </div>
                         </div><!-- /header-text -->
                     </div>
                 @endforeach
-                {{-- <div class="item">
-                    <img src="images/AB3.jpg"  width=800 height=500 />
-                    <!-- Static Header -->
-                    <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-left">
-                            <h1>START YOUR TRAINING <br>TODAY!</h1>
-                            <p>Professional & Personal Trainer</p>
-                            <a class="button" href="single.html">Let's Start!</a>
-                        </div>
-                    </div><!-- /header-text -->
-                </div>
-                <div class="item">
-                    <img src="images/AB2.jpg" />
-                    <!-- Static Header -->
-                    <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-left">
-                            <h1>START YOUR TRAINING <br>TODAY!</h1>
-                            <p>Professional & Personal Trainer</p>
-                            <a class="button" href="single.html">Let's Start!</a>
-                        </div>
-                    </div><!-- /header-text -->
-
-                </div> --}}
             </div>
         </header>
         <!--////////////////////////////////////Container-->
@@ -118,179 +38,39 @@
                     <div class="zerogrid">
                         <div class="wrap-box"><!--Start Box-->
                             <div class="row">
-                                <div class="col-1-3">
-                                    <div class="wrap-col">
-                                        <div class="box-entry">
-                                            <video width=287 height=200 controls autoplay muted>
-                                            <source src="images/vid1.mp4" class="img-responsive"/>
-                                            </video>
-                                            <div class="entry-details">
-                                                <div class="entry-meta ">
-                                                    <a class="cat" href="#">Motivation</a>
-                                                    <div class="f-right t-right">
-                                                        <span><i class="fa fa-calendar"></i> 04/12/2020 </span>
-                                                        <span><i class="fa fa-heart"></i> 38</span>
+                                @if (isset($posts) && $posts != '')
+                                    @foreach ($posts as $post)
+                                    <div class="col-1-3">
+                                        <div class="wrap-col">
+                                            <div class="box-entry">
+                                                @if ( $post->type == 'image' )
+                                                    <img style="height:200px; width=287px" src="{{ asset("storage/images/post/$post->media") }}" alt="post">
+                                                @elseif ( $post->type == 'video' )
+                                                    <video width=287 height=200 controls autoplay muted>
+                                                        <source src="{{ asset("storage/videos/post/$post->media")}}" type="video/mp4">
+                                                        Your browser does not support the video tag.
+                                                    </video>
+                                                @else
+                                                    <iframe width="287" height="200" src="{{ $post->media }}" frameborder="0" allowfullscreen></iframe>
+                                                @endif
+                                                <div class="entry-details">
+                                                    <div class="entry-meta ">
+                                                        <span>{{$post->category}}</span>
+                                                        <div class="f-right t-right">
+                                                            <span><i class="fa fa-calendar"></i> {{$post->created_at->format('d/m/Y')}} </span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="entry-des">
-                                                    <h3>Customized Workout Plan</h3>
-                                                    <p>You'll be provided with excellent customized workout plan that will match with your body capacity.</p>
-                                                    <p>You can contact me through online or can get offline service as well.</p>
-                                                </div>
-                                                <a class="button" href="single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="box-entry">
-                                            <img src="images/2.jpg" class="img-responsive"/>
-                                            <div class="entry-details">
-                                                <div class="entry-meta ">
-                                                    <a class="cat" href="#">Training</a>
-                                                    <div class="f-right t-right">
-                                                        <span><i class="fa fa-calendar"></i> 04/12/2020</span>
-                                                        <span><i class="fa fa-heart"></i> 12</span>
+                                                    <div class="entry-des">
+                                                        <h3>{{$post->title}}</h3>
+                                                        <p>{{$post->details}}</p>
                                                     </div>
+                                                    <a class="button" href="#app">Start Now</a>
                                                 </div>
-                                                <div class="entry-des">
-                                                    <h3>Personal Training</h3>
-                                                    <p>Customized online training with full monitoring. Can be done in gym or fitness center as well.</p>
-                                                </div>
-                                                <a class="button" href="single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="box-entry">
-                                            <video controls autoplay muted>
-                                            <source src="images/vid2.mp4" class="img-responsive"/>
-                                            </video>
-                                            <div class="entry-details">
-                                                <div class="entry-meta ">
-                                                    <a class="cat" href="#">Training</a>
-                                                    <div class="f-right t-right">
-                                                        <span><i class="fa fa-calendar"></i> 04/12/2020 </span>
-                                                        <span><i class="fa fa-heart"></i> 34</span>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-des">
-                                                    <h3>Personal Training</h3>
-                                                    <p>Customized online training with full monitoring. Can be done in gym or fitness center as well.</p>
-                                                </div>
-                                                <a class="button" href="single.html">Read More</a>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-1-3">
-                                    <div class="wrap-col">
-                                        <div class="box-entry">
-                                            <img src="images/4.jpg" class="img-responsive"/>
-                                            <div class="entry-details">
-                                                <div class="entry-meta ">
-                                                    <a class="cat" href="#">Training</a>
-                                                    <div class="f-right t-right">
-                                                        <span><i class="fa fa-calendar"></i> 04/12/2020 </span>
-                                                        <span><i class="fa fa-heart"></i> 16</span>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-des">
-                                                    <h3>Personal Training</h3>
-                                                    <p>Customized online training with full monitoring. Can be done in gym or fitness center as well.</p>
-                                                </div>
-                                                <a class="button" href="single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="box-entry">
-                                            <img src="images/5.jpg" class="img-responsive"/>
-                                            <div class="entry-details">
-                                                <div class="entry-meta ">
-                                                    <a class="cat" href="#">Workout</a>
-                                                    <div class="f-right t-right">
-                                                        <span><i class="fa fa-calendar"></i> 04/12/2020 </span>
-                                                        <span><i class="fa fa-heart"></i> 16</span>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-des">
-                                                    <<h3>Customized Workout Plan</h3>
-                                                    <p>You'll be provided with excellent customized workout plan that will match with your body capacity.</p>
-                                                    <p>You can contact me through online or can get offline service as well.</p>
-                                                </div>
-                                                <a class="button" href="single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="box-entry">
-                                            <img src="images/6.jpg" class="img-responsive"/>
-                                            <div class="entry-details">
-                                                <div class="entry-meta ">
-                                                    <a class="cat" href="#">Healthy Food</a>
-                                                    <div class="f-right t-right">
-                                                        <span><i class="fa fa-calendar"></i> 04/12/2020</span>
-                                                        <span><i class="fa fa-heart"></i> 52</span>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-des">
-                                                    <h3>Customized Meal Plan</h3>
-                                                    <p>You'll get a customized meal plan according to your body and lifestyle. Everyone knows that a proper diet plan is one of the most important part of being fit and healthy.</p>
-                                                </div>
-                                                <a class="button" href="single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-1-3">
-                                    <div class="wrap-col">
-                                        <div class="box-entry">
-                                            <img src="images/7.jpg" class="img-responsive"/>
-                                            <div class="entry-details">
-                                                <div class="entry-meta ">
-                                                    <a class="cat" href="#">Motivation</a>
-                                                    <div class="f-right t-right">
-                                                        <span><i class="fa fa-calendar"></i> 04/12/2020 </span>
-                                                        <span><i class="fa fa-heart"></i> 45</span>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-des">
-                                                    <h3>Customized Workout Plan</h3>
-                                                    <p>You'll be provided with excellent customized workout plan that will match with your body capacity.</p>
-                                                    <p>You can contact me through online or can get offline service as well.</p>
-                                                </div>
-                                                <a class="button" href="single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="box-entry">
-                                            <img src="images/8.jpg" class="img-responsive"/>
-                                            <div class="entry-details">
-                                                <div class="entry-meta ">
-                                                    <a class="cat" href="#">Healthy Food</a>
-                                                    <div class="f-right t-right">
-                                                        <span><i class="fa fa-calendar"></i> 25/3/2016 </span>
-                                                        <span><i class="fa fa-heart"></i> 12</span>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-des">
-                                                    <h3>Customized Meal Plan</h3>
-                                                    <p>You'll get a customized meal plan according to your body and lifestyle. Everyone knows that a proper diet plan is one of the most important part of being fit and healthy.
-                                                </div>
-                                                <a class="button" href="single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                        <div class="box-entry">
-                                            <img src="images/9.jpg" class="img-responsive"/>
-                                            <div class="entry-details">
-                                                <div class="entry-meta ">
-                                                    <a class="cat" href="#">Achievement</a>
-                                                    <div class="f-right t-right">
-                                                        <span><i class="fa fa-calendar"></i> 12/04/2020 </span>
-                                                        <span><i class="fa fa-heart"></i> 12</span>
-                                                    </div>
-                                                </div>
-                                                <div class="entry-des">
-                                                    <h3>Achieve Your Goal</h3>
-                                                    <p>I'll help you to get the body shape you desire.</p>
-                                                    <p>You will surely achieve your goal!</p>
-                                                </div>
-                                                <a class="button" href="single.html">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>

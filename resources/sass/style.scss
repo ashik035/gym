@@ -101,7 +101,7 @@ header .top-header i.fa{margin: 5px 2px 0;}
 }
 
 /* Carousel Header Styles */
-.header-text {position: absolute;top: 25%;left: 10%;right: auto;color: #555; background: rgba(0, 0, 0, .5);display: inline-block;padding: 30px;border-left: 5px solid #9BB70D;text-align: left;}
+.header-text {position: absolute;top: 25%;left: 10%;right: auto;color: #555; background: rgba(0, 0, 0, .5);display: inline-block;padding: 30px;border-left: 5px solid rgb(68, 55, 211);text-align: left;}
 .header-text h1{margin: 0;font-family: "Oswald",sans-serif;text-transform: uppercase;font-weight: 700;color: #fff;font-size: 44px;letter-spacing: 2px;}
 .header-text p{font-size: 24px;color: #ccc;font-family: 'Archivo Narrow', sans-serif;text-shadow: 1px 1px #222;}
 .header-text .btn-primary{border:none;padding: 12px 24px;margin-right: 7px;border-radius: 0;font-size: 18px;}
@@ -216,8 +216,8 @@ footer .col-footer-4 img{margin-bottom: 20px;}
 /* ---------------------------------------------------------------------------- */
 /* -------------------------------------Button--------------------------------- */
 /* ---------------------------------------------------------------------------- */
-a.button{background-color: #9BB70D;padding: 7px 18px;color: #fff;margin: 20px auto 0;display:inline-block;font-size: 15px;border-radius: 4px;}
-a.button:hover{background-color: #333;}
+a.button{background-color: rgba(64, 54, 182, 0.9); border: 1px solid rgba(64, 54, 182, 0.9); padding: 7px 18px;color: #fff;text-decoration: none; margin: 20px auto 0;display:inline-block;font-size: 15px;border-radius: 4px;}
+a.button:hover{background-color: #fff; border: 1px solid rgba(64, 54, 182, 0.9); color:rgba(64, 54, 182, 0.9);}
 
 /* ---------------------------------------------------------------------------- */
 /* ----------------------------------Carousel---------------------------------- */
@@ -239,7 +239,7 @@ a.button:hover{background-color: #333;}
 .box-entry .entry-details p{line-height: 1.2;}
 .box-entry .entry-meta {font-size: 12px !important;letter-spacing: 0.25px;margin: 0 0 15px;padding: 10px 0;position: relative;text-transform: uppercase;border-bottom: 1px solid #ddd;color: #999;}
 .box-entry .entry-meta a{color: #999;}
-.box-entry .entry-meta i.fa{margin: 7px 2px 0;}
+.box-entry .entry-meta i.fa{margin: 3px 2px 0;}
 .box-entry .entry-des {padding: 0 0 15px;border-bottom: 1px solid #ddd;}
 .box-entry .entry-des h3{margin: 0 0 20px;font-size: 19px;font-weight: 700;text-transform: uppercase;line-height: 1.4;}
 .box-entry:hover{border-bottom: 4px solid #9BB70D;}

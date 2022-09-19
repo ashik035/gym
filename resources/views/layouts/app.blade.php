@@ -54,59 +54,67 @@
 </head>
 <body>
     <div id="app" class="home-page">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+        <div class="wrap-body">
+            <header>
+                <div class="top-header">
+                    <div class="zerogrid">
+                        <div class="row">
+                            <div class="col-1-3">
+                                <div class="wrap-col">
+                                    <span><i class="fa fa-map-marker"></i> <strong>Sector-4, Uttara</strong>, Dhaka-1230, Bangladesh</span>
                                 </div>
-                            </li>
-                        @endguest
+                            </div>
+                            <div class="col-1-3">
+                                <div class="wrap-col">
+                                    <span><i class="fa fa-phone"></i> 01740096478</span>
+                                </div>
+                            </div>
+                            <div class="col-1-3">
+                                <div class="wrap-col">
+                                    <span><i class="fa fa-clock-o"></i> Sat-Thu 8:00am-02:00pm, Fri 8:00am-10:00pm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo">
+                    <a href="/">AB Shiddique Fitness</a>
+                    <span>The Best Fitness Grow Your Strenght</span>
+                </div>
+                <div id="cssmenu" class="t-left">
+                    <ul>
+                        <li class="active"><a href="index.html"><span>Program</span></a>
+                            <ul>
+                                <li class="has-sub"><a href="/program/one-on-one"><span>One-on-One Training</span></a></li>
+                                <li class="has-sub"><a href="/program/online-fitness-coaching-for-general"><span>Online Fitness Coaching for General</span></a></li>
+                                <li class="has-sub"><a href="/program/PCOS"><span>PCOS(Poly-Cystic Ovarian Syndrome)</span></a></li>
+                                <li class="has-sub"><a href="/program/HDDA"><span>Heart Disease Diabetes Arthritis</span></a></li>
+                                <li class="has-sub"><a href="/program/exersize-and-diet"><span>Exersize and Diet For Older Adults</span></a></li>
+                                <li class="has-sub"><a href="/program/customize-diet-plan"><span>Customize Diet Plan</span></a></li>
+                                <li class="has-sub"><a href="/program/customize-workout-diet"><span>Customize Workout Diet</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="has-sub"><a href="#"><span>Online Live Group Class</span></a>
+                            <ul>
+                                <li class="has-sub"><a href="#"><span>3 Days In a Week</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="index.html"><span>Shop</span></a>
+                            <ul>
+                                <li><a href="/shop/shop-all"><span>Shop All</span></a></li>
+                                <li><a href="#"><span>Accessories</span></a></li>
+                                <li class="last"><a href="#"><span>Apparel</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href=""><span>Reviews</span></a></li>
+                        <li><a href=""><span>Blog</span></a></li>
+                        <li><a href=""><span>About</span></a></li>
+                        <li class="last"><a href="contact.html"><span>Contact</span></a></li>
                     </ul>
                 </div>
-            </div>
-        </nav> --}}
+            </header>
+        </div>
 
         <main>
             @yield('content')

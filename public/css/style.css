@@ -345,7 +345,7 @@ header .top-header i.fa {
   background: rgba(0, 0, 0, 0.5);
   display: inline-block;
   padding: 30px;
-  border-left: 5px solid #9BB70D;
+  border-left: 5px solid rgb(68, 55, 211);
   text-align: left;
 }
 
@@ -691,9 +691,11 @@ footer .col-footer-4 img {
 /* -------------------------------------Button--------------------------------- */
 /* ---------------------------------------------------------------------------- */
 a.button {
-  background-color: #9BB70D;
+  background-color: rgba(64, 54, 182, 0.9);
+  border: 1px solid rgba(64, 54, 182, 0.9);
   padding: 7px 18px;
   color: #fff;
+  text-decoration: none;
   margin: 20px auto 0;
   display: inline-block;
   font-size: 15px;
@@ -701,7 +703,9 @@ a.button {
 }
 
 a.button:hover {
-  background-color: #333;
+  background-color: #fff;
+  border: 1px solid rgba(64, 54, 182, 0.9);
+  color: rgba(64, 54, 182, 0.9);
 }
 
 /* ---------------------------------------------------------------------------- */
@@ -784,7 +788,7 @@ a.button:hover {
 }
 
 .box-entry .entry-meta i.fa {
-  margin: 7px 2px 0;
+  margin: 3px 2px 0;
 }
 
 .box-entry .entry-des {

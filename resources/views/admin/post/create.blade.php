@@ -37,6 +37,24 @@
         </div>
         <div class="col-xs-8 offset-md-2 offset-xs-2 offset-sm-2 col-sm-8 col-md-8">
             <div class="form-group">
+                <strong>Media Type:</strong>
+                <select class="form-control" name="category">
+                    <option value="">Select a Category</option>
+                    <option value="MOTIVATION" <?php echo (old('category') == 'MOTIVATION') ? 'selected' : '' ?>>MOTIVATION</option>
+                    <option value="TRAINING" <?php echo (old('category') == 'TRAINING') ? 'selected' : '' ?>>TRAINING</option>
+                    <option value="WORKOUT" <?php echo (old('category') == 'WORKOUT') ?  'selected' : '' ?>>WORKOUT</option>
+                    <option value="HEALTHY FOOD" <?php echo (old('category') == 'HEALTHY FOOD') ?  'selected' : '' ?>>HEALTHY FOOD</option>
+                    <option value="ACHIEVEMENT" <?php echo (old('category') == 'ACHIEVEMENT') ?  'selected' : '' ?>>ACHIEVEMENT</option>
+                </select>
+                @if ($errors->has('category'))
+                    <span role="alert">
+                        <strong class="text-danger">{{ $errors->first('category') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+        <div class="col-xs-8 offset-md-2 offset-xs-2 offset-sm-2 col-sm-8 col-md-8">
+            <div class="form-group">
                 <strong>Post Type:</strong>
                 <select class="form-control" name="type" id="type">
                     <option value="">Select a Type</option>

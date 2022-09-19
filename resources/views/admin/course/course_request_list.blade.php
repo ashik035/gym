@@ -61,7 +61,7 @@
                 <td>{{ $course->person_name }}</td>
                 <td>{{ $course->email }}</td>
                 <td>{{ $course->paid }} Tk</td>
-                <td>{{ $course->mobile }} Tk</td>
+                <td>{{ $course->mobile }} </td>
                 <td>
                     <form action="{{ route('course.request.destroy',$course->id) }}" method="POST">
                         @csrf

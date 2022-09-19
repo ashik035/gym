@@ -57,6 +57,7 @@ class PostController extends Controller
                     'title' => 'required|max:255',
                     'details' => 'required|max:255',
                     'type' => 'required',
+                    'category' =>'required',
                     'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
                 ]);
                 if ($request->hasFile('image')) {
@@ -75,6 +76,7 @@ class PostController extends Controller
                     'title' => 'required|max:255',
                     'details' => 'required|max:255',
                     'type' => 'required',
+                    'category' =>'required',
                     'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi|max:200000'
                 ]);
                 if ($request->hasFile('video')) {
@@ -94,6 +96,7 @@ class PostController extends Controller
                     'title' => 'required|max:255',
                     'details' => 'required|max:255',
                     'type' => 'required',
+                    'category' =>'required',
                     'media' => ['required',
                                 'max:255',
                                 'regex:/^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/i'
@@ -118,6 +121,7 @@ class PostController extends Controller
             $request->validate([
                 'title' => 'required|max:255',
                 'details' => 'required|max:255',
+                'category' =>'required',
                 'type' => 'required',
             ]);
             $data['media'] = $request['current_media'];
@@ -126,6 +130,7 @@ class PostController extends Controller
         $data['title'] = $request['title'];
         $data['details'] = $request['details'];
         $data['type'] = $request['type'];
+        $data['category'] = $request['category'];
         Post::where('id' , $data['id'])
                 ->update($data);
 
@@ -155,6 +160,7 @@ class PostController extends Controller
                 'title' => 'required|max:255',
                 'details' => 'required|max:255',
                 'type' => 'required',
+                'category' => 'required',
                 'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
             ]);
             if ($request->hasFile('image')) {
@@ -173,6 +179,7 @@ class PostController extends Controller
                 'title' => 'required|max:255',
                 'details' => 'required|max:255',
                 'type' => 'required',
+                'category' => 'required',
                 'video' => 'required|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi|max:200000'
             ]);
             if ($request->hasFile('video')) {
@@ -192,6 +199,7 @@ class PostController extends Controller
                 'title' => 'required|max:255',
                 'details' => 'required|max:255',
                 'type' => 'required',
+                'category' => 'required',
                 'media' => ['required',
                             'max:255',
                             'regex:/^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/i'
@@ -215,6 +223,7 @@ class PostController extends Controller
         $data['title'] = $request['title'];
         $data['details'] = $request['details'];
         $data['type'] = $request['type'];
+        $data['category'] = $request['category'];
         Post::create($data);
 
         return redirect()->route('post.index')

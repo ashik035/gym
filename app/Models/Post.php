@@ -15,6 +15,7 @@ class Post extends Model
         'title',
         'type',
         'details',
-        'media'
+        'media',
+        'category'
     ];
 }

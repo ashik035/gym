@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
 #cssmenu {
-  background: #9BB70D;
+  background: linear-gradient(90deg, rgba(65,63,128,1) 0%, rgba(0,3,128,1) 54%, rgba(7,0,89,1) 100%);
   margin: 0;
   width: auto;
   padding: 0;
@@ -104,7 +104,7 @@
   padding: 11px 10px 11px 20px;
 }
 #cssmenu ul li ul li:hover {
-	background: #9BB70D;
+	background: linear-gradient(90deg, rgba(65,63,128,1) 0%, rgba(0,3,128,1) 54%, rgba(7,0,89,1) 100%);
 
 }
 
@@ -235,11 +235,11 @@
   width: auto;
 }
 #cssmenu > ul > li > ul {
-  width: 170px;
+  width: 200px;
   display: block;
 }
 #cssmenu > ul > li > ul > li {
-  width: 170px;
+  width: 200px;
   display: block;
 }
 @media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {

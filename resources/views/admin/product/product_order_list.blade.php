@@ -62,8 +62,8 @@
                 <td>{{ $product->person_name }}</td>
                 <td>{{ $product->email }}</td>
                 <td>{{ $product->paid_amount }} Tk</td>
-                <td>{{ $product->mobile }} Tk</td>
-                <td>{{ $product->product_amount }} Tk</td>
+                <td>{{ $product->mobile }}</td>
+                <td>{{ $product->product_amount }} </td>
                 <td>
                     <form action="{{ route('product.order.destroy',$product->id) }}" method="POST">
                         @csrf

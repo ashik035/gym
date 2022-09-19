@@ -24,6 +24,10 @@
                         <td>{{ $course->menu_name }}</td>
                     </tr>
                     <tr>
+                        <td scope="col" class="text-white">Sub Menu Name</td>
+                        <td>{{ $course->sub_menu }}</td>
+                    </tr>
+                    <tr>
                         <td scope="col" class="text-white">Course Name</td>
                         <td>{{ $course->name }}</td>
                     </tr>

@@ -2,67 +2,6 @@
 
 @section('content')
     <div class="wrap-body">
-        <header>
-            <div class="top-header">
-                <div class="zerogrid">
-                    <div class="row">
-                        <div class="col-1-3">
-                            <div class="wrap-col">
-                                <span><i class="fa fa-map-marker"></i> <strong>Sector-4, Uttara</strong>, Dhaka-1230, Bangladesh</span>
-                            </div>
-                        </div>
-                        <div class="col-1-3">
-                            <div class="wrap-col">
-                                <span><i class="fa fa-phone"></i> 01740096478</span>
-                            </div>
-                        </div>
-                        <div class="col-1-3">
-                            <div class="wrap-col">
-                                <span><i class="fa fa-clock-o"></i> Sat-Thu 8:00am-02:00pm, Fri 8:00am-10:00pm</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="logo">
-                <a href="#">AB Shiddique Fitness</a>
-                <span>The Best Fitness Grow Your Strenght</span>
-            </div>
-            <div id="cssmenu" class="t-left">
-                <ul>
-                    <li class="active"><a href="index.html"><span>Program</span></a>
-                        <ul>
-                            <li class="has-sub"><a href="#"><span>One-on-One Training</span></a></li>
-                            <li class="has-sub"><a href="#"><span>Online Fitness Coaching for General</span></a></li>
-                            <li class="has-sub"><a href="#"><span>PCOS(Poly-Cystic Ovarian Syndrome)</span></a></li>
-                            <li class="has-sub"><a href="#"><span>Heart Disease Diabetes Arthritis</span></a></li>
-                            <li class="has-sub"><a href="#"><span>Exersize and Diet For Older Adults</span></a></li>
-                            <li class="has-sub"><a href="#"><span>Customize Diet Plan</span></a></li>
-                            <li class="has-sub"><a href="#"><span>Customize Workout Diet</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="has-sub"><a href="#"><span>Online Live Class</span></a>
-                        <ul>
-                            <li class="has-sub"><a href="#"><span>3 Days In a Week</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="index.html"><span>Shop</span></a>
-                        <ul>
-                            <li><a href="#"><span>Shop All</span></a></li>
-                            <li><a href="#"><span>Accessories</span></a></li>
-                            <li class="last"><a href="#"><span>Apparel</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href=""><span>Reviews</span></a></li>
-                    <li><a href=""><span>Blog</span></a></li>
-                    <li><a href=""><span>About</span></a></li>
-                    <li class="last"><a href="contact.html"><span>Contact</span></a></li>
-                </ul>
-            </div>
-        </header>
-
-
         <div class="one-on-one">
             <div class="container">
                 <div class="row">

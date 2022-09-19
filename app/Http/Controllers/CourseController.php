@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Menu;
 use App\Http\Requests\StoreBannerRequest;
 use App\Http\Requests\UpdateBannerRequest;
 use Illuminate\Http\Request;
@@ -28,7 +29,9 @@ class CourseController extends Controller
 
     public function create()
     {
-        return view('admin.course.create');
+        $menues = Menu::get()->all();
+        $sub_menues = ['One-on-One Training','Online Fitness Coaching for General','PCOS(Poly-Cystic Ovarian Syndrome)','Heart Disease Diabetes Arthritis','Exercise and Diet For Older Adults','Customize Diet Plan','Customize Workout Diet','3 Days In a Week'];
+        return view('admin.course.create',compact('menues', 'sub_menues'));
     }
 
     public function store(Request $request)
@@ -36,6 +39,7 @@ class CourseController extends Controller
         $data = [];
         $request->validate([
             'menu_name' => 'required|max:255',
+            'sub_menu' => 'required|max:255',
             'name' => 'required|max:255',
             'included' => 'required',
             'price' => 'required',
@@ -43,6 +47,7 @@ class CourseController extends Controller
         ]);
 
         $data['menu_name'] = $request['menu_name'];
+        $data['sub_menu'] = $request['sub_menu'];
         $data['name'] = $request['name'];
         $data['included'] = $request['included'];
         $data['price'] = $request['price'];
@@ -63,7 +68,9 @@ class CourseController extends Controller
     public function edit($id)
     {
         $course = Course::find($id);
-        return view('admin.course.edit',compact('course'));
+        $menues = Menu::get()->all();
+        $sub_menues = ['One-on-One Training','Online Fitness Coaching for General','PCOS(Poly-Cystic Ovarian Syndrome)','Heart Disease Diabetes Arthritis','Exercise and Diet For Older Adults','Customize Diet Plan','Customize Workout Diet','3 Days In a Week'];
+        return view('admin.course.edit',compact('course', 'menues', 'sub_menues'));
     }
 
     /**
@@ -80,6 +87,7 @@ class CourseController extends Controller
         $data = [];
         $request->validate([
             'menu_name' => 'required|max:255',
+            'sub_menu' => 'required|max:255',
             'name' => 'required|max:255',
             'included' => 'required',
             'price' => 'required',
@@ -87,6 +95,7 @@ class CourseController extends Controller
         ]);
 
         $data['menu_name'] = $request['menu_name'];
+        $data['sub_menu'] = $request['sub_menu'];
         $data['name'] = $request['name'];
         $data['included'] = $request['included'];
         $data['price'] = $request['price'];

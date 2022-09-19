@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
 #cssmenu {
-  background: #9BB70D;
+  background: linear-gradient(90deg, rgb(65, 63, 128) 0%, rgb(0, 3, 128) 54%, rgb(7, 0, 89) 100%);
   margin: 0;
   width: auto;
   padding: 0;
@@ -116,7 +116,7 @@
 }
 
 #cssmenu ul li ul li:hover {
-  background: #9BB70D;
+  background: linear-gradient(90deg, rgb(65, 63, 128) 0%, rgb(0, 3, 128) 54%, rgb(7, 0, 89) 100%);
 }
 
 #cssmenu ul li ul li:hover > a,
@@ -272,12 +272,12 @@
 }
 
 #cssmenu > ul > li > ul {
-  width: 170px;
+  width: 200px;
   display: block;
 }
 
 #cssmenu > ul > li > ul > li {
-  width: 170px;
+  width: 200px;
   display: block;
 }
 

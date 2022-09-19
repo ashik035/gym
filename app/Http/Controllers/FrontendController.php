@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Banner;
+use App\Models\Post;
 
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class FrontendController extends Controller
         } else {
             $about_me = '';
         }
-        return view('frontend.home', compact('banners', 'about_me'));
+        $posts = Post::get()->all();
+        return view('frontend.home', compact('banners', 'about_me', 'posts'));
     }
 }
