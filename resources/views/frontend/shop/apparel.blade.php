@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 pb-4 text-center mt-5">
-                        <h2>Fitness All Products</h2>
+                        <h2>All Apparel Products</h2>
                     </div>
                 </div>
                 <div class="row pt-4">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductOrder;
 use App\Models\Post;
 use App\Http\Requests\StoreBannerRequest;
 use App\Http\Requests\UpdateBannerRequest;
@@ -38,7 +39,7 @@ class ProductController extends Controller
         $data = [];
         $request->validate([
             'name' => 'required|max:255',
-            'details' => 'required|max:255',
+            'details' => 'required|max:500',
             'type' => 'required',
             'price' => 'required',
             'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
@@ -94,7 +95,7 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $request->validate([
                 'name' => 'required|max:255',
-                'details' => 'required|max:255',
+                'details' => 'required|max:500',
                 'type' => 'required',
                 'price' => 'required',
                 'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000',
@@ -112,7 +113,7 @@ class ProductController extends Controller
         } else {
             $request->validate([
                 'name' => 'required|max:255',
-                'details' => 'required|max:255',
+                'details' => 'required|max:500',
                 'type' => 'required',
                 'price' => 'required'
             ]);

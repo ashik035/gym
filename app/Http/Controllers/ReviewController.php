@@ -28,22 +28,4 @@ class ReviewController extends Controller
         return redirect()->route('review.list')
                         ->with('success','Review deleted successfully');
     }
-
-    public function reviewPost(Request $request){
-        $data = [];
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|max:255',
-            'subject' => 'required|max:255',
-            'details' => 'required'
-        ]);
-
-        $data['name'] = $request['name'];
-        $data['email'] = $request['email'];
-        $data['subject'] = $request['subject'];
-        $data['details'] = $request['details'];
-        Review::create($data);
-
-        return redirect()->route('review');
-    }
 }

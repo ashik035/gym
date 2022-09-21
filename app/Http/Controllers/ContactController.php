@@ -28,23 +28,4 @@ class ContactController extends Controller
         return redirect()->route('contact.list')
                         ->with('success','Contact deleted successfully');
     }
-
-    public function contactPost(Request $request){
-        $data = [];
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|max:255',
-            'subject' => 'required|max:255',
-            'message' => 'required'
-        ]);
-
-        $data['name'] = $request['name'];
-        $data['email'] = $request['email'];
-        $data['subject'] = $request['subject'];
-        $data['message'] = $request['message'];
-
-        Contact::create($data);
-
-        return redirect()->route('contact');
-    }
 }

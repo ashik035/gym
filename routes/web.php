@@ -39,24 +39,40 @@ Route::get('/program/customize-diet-plan', function () {
 Route::get('/program/customize-workout-diet', function () {
     return view('frontend.program.customize-workout-diet');
 });
-Route::get('/shop/shop-all', function () {
-    return view('frontend.shop.shop-all');
-});
-
-
 Route::get('/online-live-class', function () {
     return view('frontend.online-live-class');
 });
 
+
+// Route::get('/shop/shop-all', function () {
+//     return view('frontend.shop.shop-all');
+// });
+// Route::get('/shop/accessories', function () {
+//     return view('frontend.shop.accessories');
+// });
+// Route::get('/shop/apparel', function () {
+//     return view('frontend.shop.apparel');
+// });
+
+Route::get('/shop/shop-all', [App\Http\Controllers\FrontendController::class, 'shop_all'])->name('shop.shop_all');
+Route::get('/shop/apparel', [App\Http\Controllers\FrontendController::class, 'apparel'])->name('shop.apparel');
+Route::get('/shop/accessories', [App\Http\Controllers\FrontendController::class, 'accessories'])->name('shop.accessories');
+Route::put('/product/buy', [App\Http\Controllers\FrontendController::class, 'buy'])->name('product.buy');
+
+
+
+
 Route::get('/contact', function () {
     return view('frontend.contact');
 })->name('contact');
-Route::post('/contact/post', [App\Http\Controllers\ContactController::class, 'contactPost'])->name('contact.post');
+Route::post('/contact/post', [App\Http\Controllers\FrontendController::class, 'contactPost'])->name('contact.post');
 
 Route::get('/review', function () {
     return view('frontend.review');
 })->name('review');
-Route::post('/review/post', [App\Http\Controllers\ReviewController::class, 'reviewPost'])->name('review.post');
+Route::post('/review/post', [App\Http\Controllers\FrontendController::class, 'reviewPost'])->name('review.post');
+
+Route::get('/blog', [App\Http\Controllers\FrontendController::class, 'showBlogs'])->name('blog');
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
@@ -88,6 +104,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/admin/product/order/list', [App\Http\Controllers\ProductOrderController::class, 'index'])->name('product.order.list');
     Route::post('/product/order', [App\Http\Controllers\ProductOrderController::class, 'store'])->name('product.order');
+    Route::get('/product/order/show/{id}', [App\Http\Controllers\ProductOrderController::class, 'show'])->name('product.order.show');
     Route::delete('/admin/product/order/destroy/{id}', [App\Http\Controllers\ProductOrderController::class, 'destroy'])->name('product.order.destroy');
 
     Route::get('/admin/course/request/list', [App\Http\Controllers\CourseRequestController::class, 'index'])->name('course.request.list');

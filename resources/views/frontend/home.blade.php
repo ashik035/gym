@@ -44,14 +44,14 @@
                                         <div class="wrap-col">
                                             <div class="box-entry">
                                                 @if ( $post->type == 'image' )
-                                                    <img style="height:200px; width=287px" src="{{ asset("storage/images/post/$post->media") }}" alt="post">
+                                                    <img style="height:200px; width=270px" src="{{ asset("storage/images/post/$post->media") }}" alt="post">
                                                 @elseif ( $post->type == 'video' )
-                                                    <video width=287 height=200 controls autoplay muted>
+                                                    <video width=270 height=200 controls autoplay muted>
                                                         <source src="{{ asset("storage/videos/post/$post->media")}}" type="video/mp4">
                                                         Your browser does not support the video tag.
                                                     </video>
                                                 @else
-                                                    <iframe width="287" height="200" src="{{ $post->media }}" frameborder="0" allowfullscreen></iframe>
+                                                    <iframe width="270" height="200" src="{{ $post->media }}" frameborder="0" allowfullscreen></iframe>
                                                 @endif
                                                 <div class="entry-details">
                                                     <div class="entry-meta ">

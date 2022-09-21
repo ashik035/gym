@@ -17,6 +17,7 @@ class ProductOrder extends Model
         'email',
         'paid_amount',
         'mobile',
-        'product_amount'
+        'product_amount',
+        'bkash_number'
     ];
 }

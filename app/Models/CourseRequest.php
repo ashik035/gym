@@ -16,6 +16,7 @@ class CourseRequest extends Model
         'person_name',
         'email',
         'paid_amount',
-        'mobile'
+        'mobile',
+        'bkash_number'
     ];
 }

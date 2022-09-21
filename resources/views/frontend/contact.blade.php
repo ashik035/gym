@@ -55,7 +55,7 @@
         var marker;
         var image = 'images/map-marker.png';
         function initMap() {
-          var myLatLng = {lat: 23.873751, lng: 90.3795};
+          var myLatLng = {lat: 23.8624, lng: 90.4043};
 
           // Specify features and elements to define styles.
           var styleArray = [

@@ -49,23 +49,24 @@
                 <th>Id</th>
                 <th>Product</th>
                 <th>Person</th>
-                <th>Email</th>
+                <th>Bkash</th>
                 <th>Paid</th>
                 <th>Mobile</th>
-                <th>Amount</th>
+                <th>Quantity</th>
                 <th width="280px">Action</th>
             </tr>
-            @foreach ($products as $product)
+            @foreach ($orders as $order)
             <tr>
-                <td>{{ $product->id }}</td>
-                <td>{{ $product->product_id }}</td>
-                <td>{{ $product->person_name }}</td>
-                <td>{{ $product->email }}</td>
-                <td>{{ $product->paid_amount }} Tk</td>
-                <td>{{ $product->mobile }}</td>
-                <td>{{ $product->product_amount }} </td>
+                <td>{{ $order->id }}</td>
+                <td>{{ $order->product_id }}</td>
+                <td>{{ $order->person_name }}</td>
+                <td>{{ $order->bkash_number }}</td>
+                <td>{{ $order->paid_amount }} Tk</td>
+                <td>{{ $order->mobile }}</td>
+                <td>{{ $order->product_amount }} </td>
                 <td>
-                    <form action="{{ route('product.order.destroy',$product->id) }}" method="POST">
+                    <form action="{{ route('product.order.destroy',$order->id) }}" method="POST">
+                        <a class="btn btn-info" href="{{ route('product.order.show',$order->id) }}">Show</a>
                         @csrf
                         @method('DELETE')
 
@@ -78,7 +79,7 @@
         <div class="row">
             <div class="d-flex mb-5">
                 <div class="mx-auto">
-                    {{$products->links("pagination::bootstrap-4")}}
+                    {{$orders->links("pagination::bootstrap-4")}}
                 </div>
             </div>
         </div>

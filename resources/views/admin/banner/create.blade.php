@@ -46,7 +46,7 @@
                 </span>
             @endif
         </div>
-        <div class="col-xs-8 col-sm-8 col-md-8 text-center offset-md-2 offset-xs-2 offset-sm-2">
+        <div class="col-xs-8 col-sm-8 col-md-8 text-center offset-md-2 offset-xs-2 offset-sm-2 mar">
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </div>

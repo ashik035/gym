@@ -47,9 +47,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -83,7 +85,7 @@
                 </div>
                 <div id="cssmenu" class="t-left">
                     <ul>
-                        <li class="active has-sub"><a href="/"><span>Program</span></a>
+                        <li class="active has-sub"><a href="#"><span>Program</span></a>
                             <ul>
                                 <li class="has-sub"><a href="/program/one-on-one"><span>One-on-One Training</span></a></li>
                                 <li class="has-sub"><a href="/program/online-fitness-coaching-for-general"><span>Online Fitness Coaching for General</span></a></li>
@@ -94,17 +96,17 @@
                                 <li class="has-sub"><a href="/program/customize-workout-diet"><span>Customize Workout Diet</span></a></li>
                             </ul>
                         </li>
-                        <li class="has-sub"><a href="/"><span>Online Live Group Class</span></a>
+                        <li class="has-sub"><a href="#"><span>Online Live Group Class</span></a>
                             <ul>
                                 <li class="has-sub"><a href="#"><span>3 Days In a Week</span></a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="/"><span>Shop</span></a>
+                        <li><a href="#"><span>Shop</span></a>
                             <ul>
                                 <li><a href="/shop/shop-all"><span>Shop All</span></a></li>
-                                <li><a href="#"><span>Accessories</span></a></li>
-                                <li class="last"><a href="#"><span>Apparel</span></a></li>
+                                <li><a href="/shop/accessories"><span>Accessories</span></a></li>
+                                <li class="last"><a href="/shop/apparel"><span>Apparel</span></a></li>
                             </ul>
                         </li>
                         <li><a href="/review"><span>Reviews</span></a></li>
@@ -189,6 +191,7 @@
             </div>
         </footer>
         <script src="{{ asset('js/owl-carousel/owl.carousel.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script>
             $(document).ready(function() {
                 $("#owl-slide").owlCarousel({
