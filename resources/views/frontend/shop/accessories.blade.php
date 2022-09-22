@@ -19,10 +19,8 @@
                                 <h2 class="card-title"><strong>{{$product->name}}</strong></h2>
                                 <p>{{$product->details}}</p>
                                 <div class="foot">
-                                  <h4><strong>Price: {{$product->price}} BDT</strong></h4>
-                                  <button type="button" data-backdrop="static" data-keyboard="false" class="btn front-btn justify-content-end" id="buy_button" data-id="{{(string)$product->id . ',' . (string)$product->price}}" data-toggle="modal" data-target="#productModal">
-                                    Buy Now
-                                  </button>
+                                  <h4 class="price_product"><strong>Price: {{$product->price}} BDT</strong></h4>
+                                  <a class="product_button" data-backdrop="static" data-keyboard="false" id="buy_button" data-id="modal" data-toggle="modal" data-id="{{(string)$product->id . ',' . (string)$product->price}}" data-target="#productModal">Buy Now</a>
                                 </div>
                               </div>
                             </div>

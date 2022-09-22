@@ -15,12 +15,45 @@
 }
 .monthly-package .monthly-card {
   position: relative;
-  min-height: 700px !important;
+  min-height: 800px !important;
   color: #fff;
   background-color: rgb(29, 28, 28);
 }
 .monthly-package .monthly-card:hover {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.monthly-package .monthly-card a.product_button {
+  width: 70%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 29px;
+  padding: 20px 0;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  box-shadow: 0px 0px 14px -7px #44215b;
+  background-image: linear-gradient(90deg, rgb(72, 68, 207) 0%, rgb(57, 59, 187) 54%, rgb(62, 56, 122) 100%);
+  border: 1px solid rgb(72, 68, 207);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: absolute;
+  bottom: 6%;
+  left: 15%;
+}
+.monthly-package .monthly-card a.product_button:hover {
+  background: #fff;
+  background-position: right center;
+  color: #000;
+  border: 1px solid #000;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.monthly-package .monthly-card .price_product {
+  position: absolute;
+  bottom: 15%;
+  left: 30%;
 }
 .monthly-package img {
   height: 240px;
@@ -35,4 +68,169 @@
   position: absolute;
   bottom: 1%;
   left: 40%;
+}
+
+.post_box {
+  min-height: 580px;
+  position: relative;
+}
+.post_box .button {
+  position: absolute;
+  bottom: 6%;
+  left: 30%;
+}
+.post_box .entry-des {
+  min-height: 215px;
+}
+
+.blog-zerogrid {
+  width: 1000px !important;
+}
+
+.courseRequest .card {
+  padding: 50px;
+  background-image: linear-gradient(45deg, #120a17 0%, #3e3d3f 51%, #1d0f35 100%);
+  color: #fff;
+  border: 2px solid rgba(27, 26, 26, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  min-height: 550px;
+  position: relative;
+}
+.courseRequest .card:hover {
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.courseRequest .card_title {
+  font-weight: normal;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.courseRequest .pricing {
+  font-weight: normal;
+  font-size: 40px;
+}
+.courseRequest .pricing .small {
+  font-size: 16px;
+}
+.courseRequest hr {
+  position: absolute;
+  height: 2px;
+  width: 70%;
+  top: 33%;
+  left: 15%;
+}
+.courseRequest .features {
+  position: absolute;
+  top: 45%;
+  left: 15%;
+  list-style-position: inside;
+}
+.courseRequest .features li {
+  padding-bottom: 10px;
+  color: #fff;
+}
+.courseRequest a.cta_btn {
+  width: 70%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 29px;
+  padding: 20px 0;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: 0.5s;
+  box-shadow: 0px 0px 14px -7px #44215b;
+  background-image: linear-gradient(90deg, rgb(72, 68, 207) 0%, rgb(57, 59, 187) 54%, rgb(62, 56, 122) 100%);
+  border: 1px solid rgb(72, 68, 207);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: absolute;
+  bottom: 6%;
+  left: 15%;
+}
+.courseRequest a.cta_btn:hover {
+  background: #fff;
+  background-position: right center;
+  color: #000;
+  border: 1px solid #000;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.courseRequest .link {
+  position: fixed;
+  background-color: #D12322;
+  padding: 23px 40px;
+  right: -99px;
+  border-radius: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  transform: rotate(-90deg);
+  font-size: 18px;
+  font-weight: 500;
+  color: #FFF;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.1s ease-in-out;
+}
+.courseRequest .link i {
+  padding-left: 7px;
+}
+.courseRequest .link:hover {
+  text-decoration: underline;
+  background-color: black;
+}
+
+/* Tab */
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .monthly-package {
+    position: relative;
+  }
+  .monthly-package .monthly-card {
+    min-height: 1100px !important;
+  }
+  .monthly-package .price_product {
+    position: absolute !important;
+    bottom: 13% !important;
+    left: 21% !important;
+    font-size: 15px;
+  }
+}
+/* Pc small */
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+  .monthly-package .monthly-card {
+    position: relative;
+    min-height: 900px !important;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .monthly-package .monthly-card {
+    position: relative;
+    min-height: 900px !important;
+  }
+  .courseRequest .card {
+    padding: 30px;
+  }
+  .courseRequest .card_title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .courseRequest .pricing {
+    font-size: 52px;
+  }
+  .courseRequest a.cta_btn {
+    font-size: 11px;
+  }
+  .post_box {
+    min-height: 540px;
+    position: relative;
+  }
+  .post_box .button {
+    position: absolute;
+    bottom: 4%;
+    left: 36%;
+  }
+  .post_box .entry-des {
+    min-height: 170px;
+  }
 }

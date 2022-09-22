@@ -12,7 +12,7 @@
 					<div class="wrap-content">
 						<div class="row">
                             @foreach ($blogs as $blog)
-                                <article class="single-post zerogrid">
+                                <article class="single-post zerogrid blog-zerogrid">
                                     <div class="row wrap-post"><!--Start Box-->
                                         <div class="entry-header">
                                             <span class="time">{{$blog->created_at->format('M d, Y')}}  by admin</span>

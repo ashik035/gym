@@ -42,7 +42,7 @@
                                     @foreach ($posts as $post)
                                     <div class="col-1-3">
                                         <div class="wrap-col">
-                                            <div class="box-entry">
+                                            <div class="box-entry post_box">
                                                 @if ( $post->type == 'image' )
                                                     <img style="height:200px; width=270px" src="{{ asset("storage/images/post/$post->media") }}" alt="post">
                                                 @elseif ( $post->type == 'video' )
