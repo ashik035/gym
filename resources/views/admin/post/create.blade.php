@@ -60,7 +60,7 @@
                     <option value="">Select a Type</option>
                     <option value="image" <?php echo (old('type') == 'image') ? 'selected' : '' ?> >Image</option>
                     <option value="video" <?php echo (old('type') == 'video') ? 'selected' : '' ?> >Video</option>
-                    <option value="youtube" <?php echo (old('type') == 'youtube') ?  'selected' : '' ?>>Yutube</option>
+                    <option value="youtube" <?php echo (old('type') == 'youtube') ?  'selected' : '' ?>>Youtube</option>
                 </select>
                 @if ($errors->has('type'))
                     <span role="alert">

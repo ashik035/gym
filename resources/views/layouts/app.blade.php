@@ -91,14 +91,14 @@
                                 <li class="has-sub"><a href="/program/online-fitness-coaching-for-general"><span>Online Fitness Coaching for General</span></a></li>
                                 <li class="has-sub"><a href="/program/PCOS"><span>PCOS(Poly-Cystic Ovarian Syndrome)</span></a></li>
                                 <li class="has-sub"><a href="/program/HDDA"><span>Heart Disease Diabetes Arthritis</span></a></li>
-                                <li class="has-sub"><a href="/program/exersize-and-diet"><span>Exersize and Diet For Older Adults</span></a></li>
+                                <li class="has-sub"><a href="/program/Exersise-and-diet"><span>Exersise and Diet For Older Adults</span></a></li>
                                 <li class="has-sub"><a href="/program/customize-diet-plan"><span>Customize Diet Plan</span></a></li>
                                 <li class="has-sub"><a href="/program/customize-workout-diet"><span>Customize Workout Diet</span></a></li>
                             </ul>
                         </li>
                         <li class="has-sub"><a href="#"><span>Online Live Group Class</span></a>
                             <ul>
-                                <li class="has-sub"><a href="#"><span>3 Days In a Week</span></a>
+                                <li class="has-sub"><a href="/program/three_days_in_a_week"><span>3 Days In a Week</span></a>
                                 </li>
                             </ul>
                         </li>

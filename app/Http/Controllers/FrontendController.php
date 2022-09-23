@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Banner;
+use App\Models\Course;
 use App\Models\Post;
 use App\Models\Contact;
 use App\Models\Product;
@@ -67,7 +68,7 @@ class FrontendController extends Controller
         return view('frontend.shop.accessories',compact('products', 'count'));
     }
 
-    public function buy(Request $request)
+    public function productBuy(Request $request)
     {
         $insert = ProductOrder::create($request->all());
         if ($insert) {
@@ -120,5 +121,153 @@ class FrontendController extends Controller
     {
         $blogs = Blog::get()->all();
         return view('frontend.blog',compact('blogs'));
+    }
+
+    // Preogram Menu bar's part start
+
+    public function one_on_one()
+    {
+        $courses = Course::where('menu_name', 'PROGRAM')->where('sub_menu', 'One-on-One Training')->get();
+        $count = $courses->count();
+        $class = '';
+        if ($count == 1){
+            $class = 'offset-md-4 col-md-3';
+        } else if ($count == 2){
+            $class = 'offset-md-2 col-md-3';
+        } else if ($count == 3){
+            $class = 'col-md-4';
+        } else if ($count == 4){
+            $class = 'col-md-3';
+        }
+        return view('frontend.program.one-on-one',compact('courses', 'count', 'class'));
+    }
+
+    public function online_fitness_coaching_for_general()
+    {
+        $courses = Course::where('menu_name', 'PROGRAM')->where('sub_menu', 'Online Fitness Coaching for General')->get();
+        $count = $courses->count();
+        $class = '';
+        if ($count == 1){
+            $class = 'offset-md-4 col-md-3';
+        } else if ($count == 2){
+            $class = 'offset-md-2 col-md-3';
+        } else if ($count == 3){
+            $class = 'col-md-4';
+        } else if ($count == 4){
+            $class = 'col-md-3';
+        }
+        return view('frontend.program.onilne-fitness-coaching',compact('courses', 'count', 'class'));
+    }
+
+    public function PCOS()
+    {
+        $courses = Course::where('menu_name', 'PROGRAM')->where('sub_menu', 'PCOS(Poly-Cystic Ovarian Syndrome)')->get();
+        $count = $courses->count();
+        $class = '';
+        if ($count == 1){
+            $class = 'offset-md-4 col-md-3';
+        } else if ($count == 2){
+            $class = 'offset-md-2 col-md-3';
+        } else if ($count == 3){
+            $class = 'col-md-4';
+        } else if ($count == 4){
+            $class = 'col-md-3';
+        }
+        return view('frontend.program.PCOS',compact('courses', 'count', 'class'));
+    }
+
+    public function HDDA()
+    {
+        $courses = Course::where('menu_name', 'PROGRAM')->where('sub_menu', 'Heart Disease Diabetes Arthritis')->get();
+        $count = $courses->count();
+        $class = '';
+        if ($count == 1){
+            $class = 'offset-md-4 col-md-3';
+        } else if ($count == 2){
+            $class = 'offset-md-2 col-md-3';
+        } else if ($count == 3){
+            $class = 'col-md-4';
+        } else if ($count == 4){
+            $class = 'col-md-3';
+        }
+        return view('frontend.program.HDDA',compact('courses', 'count', 'class'));
+    }
+
+    public function Exersise_and_diet()
+    {
+        $courses = Course::where('menu_name', 'PROGRAM')->where('sub_menu', 'Exercise and Diet For Older Adults')->get();
+        $count = $courses->count();
+        $class = '';
+        if ($count == 1){
+            $class = 'offset-md-4 col-md-3';
+        } else if ($count == 2){
+            $class = 'offset-md-2 col-md-3';
+        } else if ($count == 3){
+            $class = 'col-md-4';
+        } else if ($count == 4){
+            $class = 'col-md-3';
+        }
+        return view('frontend.program.Exersise_and_diet',compact('courses', 'count', 'class'));
+    }
+
+    public function customize_diet_plan()
+    {
+        $courses = Course::where('menu_name', 'PROGRAM')->where('sub_menu', 'Customize Diet Plan')->get();
+        $count = $courses->count();
+        $class = '';
+        if ($count == 1){
+            $class = 'offset-md-4 col-md-3';
+        } else if ($count == 2){
+            $class = 'offset-md-2 col-md-3';
+        } else if ($count == 3){
+            $class = 'col-md-4';
+        } else if ($count == 4){
+            $class = 'col-md-3';
+        }
+        return view('frontend.program.customize-diet-plan',compact('courses', 'count', 'class'));
+    }
+
+    public function customize_workout_diet()
+    {
+        $courses = Course::where('menu_name', 'PROGRAM')->where('sub_menu', 'Customize Workout Diet')->get();
+        $count = $courses->count();
+        $class = '';
+        if ($count == 1){
+            $class = 'offset-md-4 col-md-3';
+        } else if ($count == 2){
+            $class = 'offset-md-2 col-md-3';
+        } else if ($count == 3){
+            $class = 'col-md-4';
+        } else if ($count == 4){
+            $class = 'col-md-3';
+        }
+        return view('frontend.program.customize-workout-diet',compact('courses', 'count', 'class'));
+    }
+
+    public function three_days_in_a_week()
+    {
+        $courses = Course::where('menu_name', 'ONLINE LIVE GROUP CLASS')->where('sub_menu', '3 Days In a Week')->get();
+        $count = $courses->count();
+        $class = '';
+        if ($count == 1){
+            $class = 'offset-md-4 col-md-3';
+        } else if ($count == 2){
+            $class = 'offset-md-2 col-md-3';
+        } else if ($count == 3){
+            $class = 'col-md-4';
+        } else if ($count == 4){
+            $class = 'col-md-3';
+        }
+        return view('frontend.online_live_class.three_days_in_a_week',compact('courses', 'count', 'class'));
+    }
+
+    public function courseBuy(Request $request)
+    {
+        $insert = CourseRequest::create($request->all());
+        if ($insert) {
+            return response()->json(['success'=>'Successfully Paid for the Course Enrollment. Admin will call you shortly.']);
+        } else {
+            return response()->json(['danger'=>'Some data of your input are not correct!']);
+        }
     }
 }

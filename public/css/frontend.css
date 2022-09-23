@@ -10,6 +10,14 @@
   border-color: rgba(44, 35, 141, 0.9);
 }
 
+#productModal {
+  z-index: 99999999;
+}
+
+#courseModal {
+  z-index: 99999999;
+}
+
 .monthly-package {
   margin-bottom: 50px;
 }
@@ -116,7 +124,7 @@
   position: absolute;
   height: 2px;
   width: 70%;
-  top: 33%;
+  top: 40%;
   left: 15%;
 }
 .courseRequest .features {

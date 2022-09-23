@@ -20,7 +20,7 @@
                                 <p>{{$product->details}}</p>
                                 <div class="foot">
                                   <h4 class="price_product"><strong>Price: {{$product->price}} BDT</strong></h4>
-                                  <a class="product_button" data-backdrop="static" data-keyboard="false" id="buy_button" data-id="modal" data-toggle="modal" data-id="{{(string)$product->id . ',' . (string)$product->price}}" data-target="#productModal">Buy Now</a>
+                                  <a class="product_button" data-backdrop="static" data-keyboard="false" id="buy_button" data-toggle="modal" data-id="{{(string)$product->id . ',' . (string)$product->price}}" data-target="#productModal">Buy Now</a>
                                 </div>
                               </div>
                             </div>
@@ -125,7 +125,7 @@
       $('#alert-last').hide();
       $('#alert-success').hide();
       $('#alert-danger').hide();
-      $('button[data-toggle=modal]').on('click', function() {
+      $('a[data-toggle=modal]').on('click', function() {
         $('form#product_form').trigger("reset");
         $('#calculation_div').hide()
         var data = $(this).data('id');

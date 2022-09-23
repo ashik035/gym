@@ -64,6 +64,7 @@
                 <td>{{ $course->mobile }} </td>
                 <td>
                     <form action="{{ route('course.request.destroy',$course->id) }}" method="POST">
+                        <a class="btn btn-info" href="{{ route('course.request.show',$course->id) }}">Show</a>
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

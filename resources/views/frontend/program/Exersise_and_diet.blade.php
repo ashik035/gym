@@ -6,7 +6,7 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-12 pb-4 mt-3 text-center">
-                      <h2>Customize Diet Plan</h2>
+                      <h2>Exercise and Diet For Older Adults</h2>
                   </div>
               </div>
               <div class="row pt-4">

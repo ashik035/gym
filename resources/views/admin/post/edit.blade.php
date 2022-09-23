@@ -61,7 +61,7 @@
                     <option value="">Select a Type</option>
                     <option value="image" <?php echo (old('type').@$post->type == 'image') ? 'selected' : '' ?> >Image</option>
                     <option value="video" <?php echo (old('type').@$post->type == 'video') ? 'selected' : '' ?> >Video</option>
-                    <option value="youtube" <?php echo (old('type').@$post->type == 'youtube') ?  'selected' : '' ?>>Yutube</option>
+                    <option value="youtube" <?php echo (old('type').@$post->type == 'youtube') ?  'selected' : '' ?>>Youtube</option>
                 </select>
                 @if ($errors->has('type'))
                     <span role="alert">

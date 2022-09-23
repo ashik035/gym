@@ -13,67 +13,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('frontend.home');
-// });
 Route::get('/', [App\Http\Controllers\FrontendController::class, 'frontend_home']);
 
-Route::get('/program/one-on-one', function () {
-    return view('frontend.program.one-on-one');
-});
-Route::get('/program/online-fitness-coaching-for-general', function () {
-    return view('frontend.program.onilne-fitness-coaching');
-});
-Route::get('/program/PCOS', function () {
-    return view('frontend.program.PCOS');
-});
-Route::get('/program/HDDA', function () {
-    return view('frontend.program.HDDA');
-});
-Route::get('/program/exersize-and-diet', function () {
-    return view('frontend.program.Exersize-and-diet');
-});
-Route::get('/program/customize-diet-plan', function () {
-    return view('frontend.program.customize-diet-plan');
-});
-Route::get('/program/customize-workout-diet', function () {
-    return view('frontend.program.customize-workout-diet');
-});
-Route::get('/online-live-class', function () {
-    return view('frontend.online-live-class');
-});
+// Course Menu bars all route of frontend starts
+Route::get('/program/one-on-one', [App\Http\Controllers\FrontendController::class, 'one_on_one'])->name('program.one-on-one');
+Route::get('/program/online-fitness-coaching-for-general', [App\Http\Controllers\FrontendController::class, 'online_fitness_coaching_for_general'])->name('program.online-fitness-coaching-for-general');
+Route::get('/program/PCOS', [App\Http\Controllers\FrontendController::class, 'PCOS'])->name('program.PCOS');
+Route::get('/program/HDDA', [App\Http\Controllers\FrontendController::class, 'HDDA'])->name('program.HDDA');
+Route::get('/program/Exersise-and-diet', [App\Http\Controllers\FrontendController::class, 'Exersise_and_diet'])->name('program.Exersise-and-diet');
+Route::get('/program/customize-diet-plan', [App\Http\Controllers\FrontendController::class, 'customize_diet_plan'])->name('program.customize-diet-plan');
+Route::get('/program/customize-workout-diet', [App\Http\Controllers\FrontendController::class, 'customize_workout_diet'])->name('program.customize-workout-diet');
+Route::get('/program/three_days_in_a_week', [App\Http\Controllers\FrontendController::class, 'three_days_in_a_week'])->name('program.three_days_in_a_week');
+Route::put('/course/buy', [App\Http\Controllers\FrontendController::class, 'courseBuy'])->name('course.buy');
+// Course Menu bars all route of frontend starts
 
-
-// Route::get('/shop/shop-all', function () {
-//     return view('frontend.shop.shop-all');
-// });
-// Route::get('/shop/accessories', function () {
-//     return view('frontend.shop.accessories');
-// });
-// Route::get('/shop/apparel', function () {
-//     return view('frontend.shop.apparel');
-// });
-
+// Shop Menu bars all route of frontend starts
 Route::get('/shop/shop-all', [App\Http\Controllers\FrontendController::class, 'shop_all'])->name('shop.shop_all');
 Route::get('/shop/apparel', [App\Http\Controllers\FrontendController::class, 'apparel'])->name('shop.apparel');
 Route::get('/shop/accessories', [App\Http\Controllers\FrontendController::class, 'accessories'])->name('shop.accessories');
-Route::put('/product/buy', [App\Http\Controllers\FrontendController::class, 'buy'])->name('product.buy');
+Route::put('/product/buy', [App\Http\Controllers\FrontendController::class, 'productBuy'])->name('product.buy');
+// Shop Menu bars all route of frontend End
 
 
-
-
+// Other Menu bars all route of frontend starts
 Route::get('/contact', function () {
     return view('frontend.contact');
 })->name('contact');
 Route::post('/contact/post', [App\Http\Controllers\FrontendController::class, 'contactPost'])->name('contact.post');
-
 Route::get('/review', function () {
     return view('frontend.review');
 })->name('review');
 Route::post('/review/post', [App\Http\Controllers\FrontendController::class, 'reviewPost'])->name('review.post');
-
 Route::get('/blog', [App\Http\Controllers\FrontendController::class, 'showBlogs'])->name('blog');
+// Other Menu bars all route of frontend End
 
+
+// Backend Route started
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
 
@@ -110,5 +85,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/course/request/list', [App\Http\Controllers\CourseRequestController::class, 'index'])->name('course.request.list');
     Route::post('/course/request', [App\Http\Controllers\CourseRequestController::class, 'store'])->name('course.request');
     Route::delete('/admin/course/request/destroy/{id}', [App\Http\Controllers\CourseRequestController::class, 'destroy'])->name('course.request.destroy');
+    Route::get('/course/request/show/{id}', [App\Http\Controllers\CourseRequestController::class, 'show'])->name('course.request.show');
 
 });
+// Backend Route Ends

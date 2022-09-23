@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CourseRequest;
+use App\Models\Course;
 use App\Http\Requests\StoreCourseRequestRequest;
 use App\Http\Requests\UpdateCourseRequestRequest;
 
@@ -17,9 +18,13 @@ class CourseRequestController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function show($id)
     {
-        //
+        $order = CourseRequest::where('id' , $id)->get()->first();
+        $course = Course::where('id' , $order->course_id)->get()->first();
+        $p = (int)$course->price;
+        $cost = $p + (($p/1000)*20);
+        return view('admin.course.course_request_show',compact('order', 'course', 'cost'));
     }
 
     public function destroy($id)
