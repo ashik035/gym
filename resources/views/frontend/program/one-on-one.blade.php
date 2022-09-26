@@ -5,14 +5,14 @@
       <div class="one-on-one">
           <div class="container">
               <div class="row">
-                  <div class="col-md-12 pb-4 mt-3 text-center">
+                  <div class="col-md-12 pb-4 mt-3 head-text text-center">
                       <h2>One-on-One Training</h2>
                   </div>
               </div>
               <div class="row pt-4">
                 @if (isset($courses) && $courses != '')
                   @foreach ($courses as $course)
-                    <div class="{{ $class }} text-center monthly-package">
+                    <div class="{{ $class }} text-center monthly-package {{ ($count == 1)?'mid-card':'' }}">
                       <div class="card">
                         <h2 class="card_title">{{$course->name}}</h2>
                         <p class="pricing">{{$course->price}}৳</p>

@@ -131,13 +131,13 @@ class FrontendController extends Controller
         $count = $courses->count();
         $class = '';
         if ($count == 1){
-            $class = 'offset-md-4 col-md-3';
+            $class = 'offset-lg-4 col-lg-3 offset-md-3 col-md-6';
         } else if ($count == 2){
-            $class = 'offset-md-2 col-md-3';
+            $class = 'offset-lg-2 col-lg-3 col-md-6';
         } else if ($count == 3){
-            $class = 'col-md-4';
+            $class = 'col-lg-4 col-md-6';
         } else if ($count == 4){
-            $class = 'col-md-3';
+            $class = 'col-lg-3 col-md-6';
         }
         return view('frontend.program.one-on-one',compact('courses', 'count', 'class'));
     }
@@ -148,13 +148,13 @@ class FrontendController extends Controller
         $count = $courses->count();
         $class = '';
         if ($count == 1){
-            $class = 'offset-md-4 col-md-3';
+            $class = 'offset-lg-4 col-lg-3 offset-md-3 col-md-6';
         } else if ($count == 2){
-            $class = 'offset-md-2 col-md-3';
+            $class = 'offset-lg-2 col-lg-3 col-md-6';
         } else if ($count == 3){
-            $class = 'col-md-4';
+            $class = 'col-lg-4 col-md-6';
         } else if ($count == 4){
-            $class = 'col-md-3';
+            $class = 'col-lg-3 col-md-6';
         }
         return view('frontend.program.onilne-fitness-coaching',compact('courses', 'count', 'class'));
     }
@@ -165,13 +165,13 @@ class FrontendController extends Controller
         $count = $courses->count();
         $class = '';
         if ($count == 1){
-            $class = 'offset-md-4 col-md-3';
+            $class = 'offset-lg-4 col-lg-3 offset-md-3 col-md-6';
         } else if ($count == 2){
-            $class = 'offset-md-2 col-md-3';
+            $class = 'offset-lg-2 col-lg-3 col-md-6';
         } else if ($count == 3){
-            $class = 'col-md-4';
+            $class = 'col-lg-4 col-md-6';
         } else if ($count == 4){
-            $class = 'col-md-3';
+            $class = 'col-lg-3 col-md-6';
         }
         return view('frontend.program.PCOS',compact('courses', 'count', 'class'));
     }
@@ -182,13 +182,13 @@ class FrontendController extends Controller
         $count = $courses->count();
         $class = '';
         if ($count == 1){
-            $class = 'offset-md-4 col-md-3';
+            $class = 'offset-lg-4 col-lg-3 offset-md-3 col-md-6';
         } else if ($count == 2){
-            $class = 'offset-md-2 col-md-3';
+            $class = 'offset-lg-2 col-lg-3 col-md-6';
         } else if ($count == 3){
-            $class = 'col-md-4';
+            $class = 'col-lg-4 col-md-6';
         } else if ($count == 4){
-            $class = 'col-md-3';
+            $class = 'col-lg-3 col-md-6';
         }
         return view('frontend.program.HDDA',compact('courses', 'count', 'class'));
     }
@@ -199,13 +199,13 @@ class FrontendController extends Controller
         $count = $courses->count();
         $class = '';
         if ($count == 1){
-            $class = 'offset-md-4 col-md-3';
+            $class = 'offset-lg-4 col-lg-3 offset-md-3 col-md-6';
         } else if ($count == 2){
-            $class = 'offset-md-2 col-md-3';
+            $class = 'offset-lg-2 col-lg-3 col-md-6';
         } else if ($count == 3){
-            $class = 'col-md-4';
+            $class = 'col-lg-4 col-md-6';
         } else if ($count == 4){
-            $class = 'col-md-3';
+            $class = 'col-lg-3 col-md-6';
         }
         return view('frontend.program.Exersise_and_diet',compact('courses', 'count', 'class'));
     }
@@ -216,13 +216,13 @@ class FrontendController extends Controller
         $count = $courses->count();
         $class = '';
         if ($count == 1){
-            $class = 'offset-md-4 col-md-3';
+            $class = 'offset-lg-4 col-lg-3 offset-md-3 col-md-6';
         } else if ($count == 2){
-            $class = 'offset-md-2 col-md-3';
+            $class = 'offset-lg-2 col-lg-3 col-md-6';
         } else if ($count == 3){
-            $class = 'col-md-4';
+            $class = 'col-lg-4 col-md-6';
         } else if ($count == 4){
-            $class = 'col-md-3';
+            $class = 'col-lg-3 col-md-6';
         }
         return view('frontend.program.customize-diet-plan',compact('courses', 'count', 'class'));
     }
@@ -233,13 +233,13 @@ class FrontendController extends Controller
         $count = $courses->count();
         $class = '';
         if ($count == 1){
-            $class = 'offset-md-4 col-md-3';
+            $class = 'offset-lg-4 col-lg-3 offset-md-3 col-md-6';
         } else if ($count == 2){
-            $class = 'offset-md-2 col-md-3';
+            $class = 'offset-lg-2 col-lg-3 col-md-6';
         } else if ($count == 3){
-            $class = 'col-md-4';
+            $class = 'col-lg-4 col-md-6';
         } else if ($count == 4){
-            $class = 'col-md-3';
+            $class = 'col-lg-3 col-md-6';
         }
         return view('frontend.program.customize-workout-diet',compact('courses', 'count', 'class'));
     }
@@ -250,13 +250,13 @@ class FrontendController extends Controller
         $count = $courses->count();
         $class = '';
         if ($count == 1){
-            $class = 'offset-md-4 col-md-3';
+            $class = 'offset-lg-4 col-lg-3 offset-md-3 col-md-6';
         } else if ($count == 2){
-            $class = 'offset-md-2 col-md-3';
+            $class = 'offset-lg-2 col-lg-3 col-md-6';
         } else if ($count == 3){
-            $class = 'col-md-4';
+            $class = 'col-lg-4 col-md-6';
         } else if ($count == 4){
-            $class = 'col-md-3';
+            $class = 'col-lg-3 col-md-6';
         }
         return view('frontend.online_live_class.three_days_in_a_week',compact('courses', 'count', 'class'));
     }

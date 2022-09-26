@@ -263,7 +263,7 @@ hr.line-2 {
 }
 
 .widget-title:before {
-  background-color: #9BB70D;
+  background-color: rgba(64, 54, 182, 0.9);
   content: "";
   height: 1em;
   left: 0;

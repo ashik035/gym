@@ -10,12 +10,31 @@
   border-color: rgba(44, 35, 141, 0.9);
 }
 
+.post_box video {
+  height: auto;
+  width: 99%;
+}
+.post_box img {
+  height: auto;
+  width: 99%;
+}
+.post_box iframe {
+  height: auto;
+  width: 99%;
+}
+
 #productModal {
   z-index: 99999999;
 }
 
 #courseModal {
   z-index: 99999999;
+}
+
+.head-text {
+  color: rgba(46, 34, 176, 0.9);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  margin-bottom: 40px;
 }
 
 .monthly-package {
@@ -29,6 +48,9 @@
 }
 .monthly-package .monthly-card:hover {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.monthly-package .monthly-card .card-title {
+  color: rgba(90, 75, 255, 0.9);
 }
 .monthly-package .monthly-card a.product_button {
   width: 70%;
@@ -109,13 +131,14 @@
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 .courseRequest .card_title {
-  font-weight: normal;
-  font-size: 36px;
+  font-weight: bold;
+  color: rgba(90, 75, 255, 0.9);
+  font-size: 20px;
   margin-bottom: 20px;
 }
 .courseRequest .pricing {
   font-weight: normal;
-  font-size: 40px;
+  font-size: 30px;
 }
 .courseRequest .pricing .small {
   font-size: 16px;
@@ -124,13 +147,13 @@
   position: absolute;
   height: 2px;
   width: 70%;
-  top: 40%;
+  top: 30%;
   left: 15%;
 }
 .courseRequest .features {
   position: absolute;
-  top: 45%;
-  left: 15%;
+  top: 40%;
+  left: 10%;
   list-style-position: inside;
 }
 .courseRequest .features li {
@@ -165,42 +188,27 @@
   border: 1px solid #000;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
-.courseRequest .link {
-  position: fixed;
-  background-color: #D12322;
-  padding: 23px 40px;
-  right: -99px;
-  border-radius: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  transform: rotate(-90deg);
-  font-size: 18px;
-  font-weight: 500;
-  color: #FFF;
-  text-decoration: none;
-  text-transform: capitalize;
-  transition: all 0.1s ease-in-out;
-}
-.courseRequest .link i {
-  padding-left: 7px;
-}
-.courseRequest .link:hover {
-  text-decoration: underline;
-  background-color: black;
-}
 
+@media only screen and (min-device-width: 991px) {
+  .mid-card {
+    margin-left: 38%;
+  }
+}
 /* Tab */
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+  .courseRequest .features {
+    left: 24%;
+  }
   .monthly-package {
     position: relative;
   }
   .monthly-package .monthly-card {
-    min-height: 1100px !important;
+    min-height: 830px !important;
   }
   .monthly-package .price_product {
     position: absolute !important;
-    bottom: 13% !important;
-    left: 21% !important;
+    bottom: 15% !important;
+    left: 30% !important;
     font-size: 15px;
   }
 }
@@ -209,6 +217,24 @@
   .monthly-package .monthly-card {
     position: relative;
     min-height: 900px !important;
+  }
+  .courseRequest .features {
+    left: 0%;
+  }
+  .courseRequest .card_title {
+    font-size: 14px;
+  }
+  .courseRequest hr {
+    position: absolute;
+    height: 2px;
+    width: 70%;
+    top: 30%;
+    left: 15%;
+  }
+}
+@media only screen and (min-device-width: 425px) and (max-device-width: 767px) {
+  .courseRequest .features {
+    left: 30%;
   }
 }
 @media only screen and (max-width: 425px) {
@@ -228,6 +254,9 @@
   }
   .courseRequest a.cta_btn {
     font-size: 11px;
+  }
+  .courseRequest .features {
+    left: 19%;
   }
   .post_box {
     min-height: 540px;

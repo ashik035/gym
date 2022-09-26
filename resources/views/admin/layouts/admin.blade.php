@@ -168,20 +168,6 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{ route('admin.about') }}
-                                aria-expanded="false">
-                                <i class="mdi mdi-arrange-bring-forward"></i>
-                                <span class="hide-menu">About Me</span>
-                            </a>
-                        </li>
-                        {{-- <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{ route('admin.address') }}
-                                aria-expanded="false">
-                                <i class="mdi mdi-map-marker"></i>
-                                <span class="hide-menu">Address</span>
-                            </a>
-                        </li> --}}
-                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{ route('product.index') }}
                                 aria-expanded="false">
                                 <i class="mdi mdi-cart"></i>
@@ -205,7 +191,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href={{route('contact.list') }}
                                 aria-expanded="false">
-                                <i class="mdi mdi-av-timer"></i>
+                                <i class="mdi mdi-map-marker"></i>
                                 <span class="hide-menu">Contact</span>
                             </a>
                         </li>

@@ -5,14 +5,14 @@
         <div class="one-on-one">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 pb-4 text-center mt-5">
+                    <div class="col-md-12 pb-4 head-text text-center mt-5">
                         <h2>All Accessories Products</h2>
                     </div>
                 </div>
                 <div class="row pt-4">
                     @if( isset($products) && $products != '')
                       @foreach ($products as $product)
-                        <div class="col-md-4 text-center monthly-package">
+                        <div class="col-md-6 col-lg-4 text-center monthly-package">
                           <div class="card monthly-card">
                               <img class="card-img-top" src="{{ asset("storage/images/product/$product->image") }}" alt="Card image cap">
                               <div class="card-body">

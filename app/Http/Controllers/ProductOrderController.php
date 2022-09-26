@@ -22,16 +22,11 @@ class ProductOrderController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
     public function show($id)
     {
         $order = ProductOrder::where('id' , $id)->get()->first();
         $product = Product::where('id' , $order->product_id)->get()->first();
-        $p = (int)$product->price;
+        $p = (int)$product->price * (int)$order->product_amount;
         $cost = $p + (($p/1000)*20);
         return view('admin.product.order_show',compact('order', 'product', 'cost'));
     }
