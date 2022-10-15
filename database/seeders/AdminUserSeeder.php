@@ -19,5 +19,15 @@ class AdminUserSeeder extends Seeder
             'email' => 'admin@mailinator.com',
             'password' => bcrypt('gym@1234'),
         ]);
+        User::create([
+            'name' => 'tilo',
+            'email' => 'tilottoma.nawar@gmail.com',
+            'password' => bcrypt('janina-01'),
+        ]);
+        User::create([
+            'name' => 'shiddique',
+            'email' => 'abshiddique31@gmail.com',
+            'password' => bcrypt('ab_s@1234'),
+        ]);
     }
 }
