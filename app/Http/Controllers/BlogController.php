@@ -54,7 +54,7 @@ class BlogController extends Controller
         if ($request->hasFile('image')) {
             $request->validate([
                 'title' => 'required|max:255|min:5',
-                'details' => 'required|max:200|min:20',
+                'details' => 'required|max:2000|min:20',
                 'image' => 'mimes:jpeg,jpg,png,gif,svg|required|max:10000'
             ]);
 
@@ -68,10 +68,15 @@ class BlogController extends Controller
             $filePath = 'images/blog'.'/';
 
             Storage::disk('public')->put($filePath . $fileName, (string) $img);
+            $im = $request['current_image'];
+            $exists = Storage::disk('public')->exists("images/blog/{$im}");
+            if($exists){
+                Storage::disk('public')->delete("images/blog/{$im}");
+            }
         } else {
             $request->validate([
                 'title' => 'required|max:255|min:5',
-                'details' => 'required|max:200|min:20'
+                'details' => 'required|max:2000|min:20'
             ]);
             $fileName = $request['current_image'];
         }

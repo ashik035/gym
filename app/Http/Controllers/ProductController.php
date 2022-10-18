@@ -110,6 +110,12 @@ class ProductController extends Controller
 
             Storage::disk('public')->put($filePath . $fileName, (string) $img);
             $data['image'] = $fileName;
+
+            $im = $request['current_image'];
+            $exists = Storage::disk('public')->exists("images/product/{$im}");
+            if($exists){
+                Storage::disk('public')->delete("images/product/{$im}");
+            }
         } else {
             $request->validate([
                 'name' => 'required|max:255',

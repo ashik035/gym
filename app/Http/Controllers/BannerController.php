@@ -68,6 +68,11 @@ class BannerController extends Controller
             $filePath = 'images/banner'.'/';
 
             Storage::disk('public')->put($filePath . $fileName, (string) $img);
+            $im = $request['current_image'];
+            $exists = Storage::disk('public')->exists("images/banner/{$im}");
+            if($exists){
+                Storage::disk('public')->delete("images/banner/{$im}");
+            }
         } else {
             $request->validate([
                 'header' => 'required|max:255',

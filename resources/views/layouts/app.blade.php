@@ -79,9 +79,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="logo">
-                    <a href="/">AB Shiddique Fitness</a>
-                    <span>The Best Fitness Grow Your Strenght</span>
+                <div class=" ">
+                    <div class="zerogrid">
+                        <div class="row">
+                            <div class="col-1-3">
+                                <div class="wrap-col">
+                                </div>
+                            </div>
+                            <div class="col-1-3">
+                                <div class="wrap-col mt-3 mb-3">
+                                    <a href="/"><img class="logo_img" src="{{ asset("storage/images/logo/logo-02.png") }}" alt="logo"></a>
+                                </div>
+                            </div>
+                            <div class="col-1-3">
+                                <div class="wrap-col">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div id="cssmenu" class="t-left">
                     <ul>

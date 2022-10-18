@@ -10,6 +10,10 @@
   border-color: rgba(44, 35, 141, 0.9);
 }
 
+.logo_img {
+  width: 280px;
+}
+
 .post_box video {
   height: auto;
   width: 99%;
@@ -235,6 +239,9 @@
 @media only screen and (min-device-width: 425px) and (max-device-width: 767px) {
   .courseRequest .features {
     left: 30%;
+  }
+  .logo_img {
+    width: 180px;
   }
 }
 @media only screen and (max-width: 425px) {

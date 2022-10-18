@@ -68,6 +68,22 @@ class PostController extends Controller
                     $img = Image::make($image->getRealPath())->encode($ext);
                     $filePath = 'images/post'.'/';
 
+                    $post = Post::find($id);
+
+                    if ($post->type == 'image') {
+                        $im = $post->media;
+                        $exists = Storage::disk('public')->exists("images/post/{$im}");
+                        if($exists){
+                            Storage::disk('public')->delete("images/post/{$im}");
+                        }
+                    } else if ($post->type == 'video') {
+                        $im = $post->media;
+                        $exists = Storage::disk('public')->exists("videos/post/{$im}");
+                        if($exists){
+                            Storage::disk('public')->delete("videos/post/{$im}");
+                        }
+                    }
+
                     Storage::disk('public')->put($filePath . $fileName, (string) $img);
                     $data['media'] = $fileName;
                 }
@@ -87,6 +103,22 @@ class PostController extends Controller
 
                     // File URL to access the video in frontend
                     $url = Storage::disk('public')->url($filePath);
+
+                    $post = Post::find($id);
+
+                    if ($post->type == 'image') {
+                        $im = $post->media;
+                        $exists = Storage::disk('public')->exists("images/post/{$im}");
+                        if($exists){
+                            Storage::disk('public')->delete("images/post/{$im}");
+                        }
+                    } else if ($post->type == 'video') {
+                        $im = $post->media;
+                        $exists = Storage::disk('public')->exists("videos/post/{$im}");
+                        if($exists){
+                            Storage::disk('public')->delete("videos/post/{$im}");
+                        }
+                    }
 
                     // Storage::disk('public')->put($filePath . $fileName, (string) $img);
                     $data['media'] = $fileName;
@@ -116,6 +148,21 @@ class PostController extends Controller
                 }
                 $output = 'https://www.youtube.com/embed/' . $youtube_id ;
                 $data['media'] = $output;
+                $post = Post::find($id);
+
+                if ($post->type == 'image') {
+                    $im = $post->media;
+                    $exists = Storage::disk('public')->exists("images/post/{$im}");
+                    if($exists){
+                        Storage::disk('public')->delete("images/post/{$im}");
+                    }
+                } else if ($post->type == 'video') {
+                    $im = $post->media;
+                    $exists = Storage::disk('public')->exists("videos/post/{$im}");
+                    if($exists){
+                        Storage::disk('public')->delete("videos/post/{$im}");
+                    }
+                }
             }
         } else {
             $request->validate([
