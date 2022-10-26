@@ -63,7 +63,7 @@
                         <div class="row">
                             <div class="col-1-3">
                                 <div class="wrap-col">
-                                    <span><i class="fa fa-map-marker"></i> <strong>Sector-4, Uttara</strong>, Dhaka-1230, Bangladesh</span>
+                                    <span><i class="fa fa-map-marker"></i> <strong>Sector-3, Uttara</strong>, Dhaka-1230, Bangladesh</span>
                                 </div>
                             </div>
                             <div class="col-1-3">
@@ -163,8 +163,9 @@
                     <div class="col-1-4 col-footer-3">
                         <div class="wrap-col">
                             <h3 class="widget-title">Tag Cloud</h3>
-                            <a href="#">trainer</a>
+                            <a href="#">personal trainer</a>
                             <a href="#">workout</a>
+                            <a href="#">certified trainer</a>
                             <a href="#">countries</a>
                             <a href="#">healthy</a>
                             <a href="#">food</a>
@@ -187,7 +188,7 @@
                             <h3 class="widget-title">Where to Find Me</h3>
                             <div class="row">
                                 <address>
-                                    <strong>sector 4, Uttara,</strong>
+                                    <strong>sector 3, Uttara,</strong>
                                     <br>
                                     Dhaka
                                 </p>
