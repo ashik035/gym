@@ -15,7 +15,7 @@
                                 <article class="single-post zerogrid blog-zerogrid">
                                     <div class="row wrap-post"><!--Start Box-->
                                         <div class="entry-header">
-                                            <span class="time">{{$blog->created_at->format('M d, Y')}}  by admin</span>
+                                            <span class="time">{{$blog->created_at->format('M d, Y')}}  by Shiddique</span>
                                             <h2 class="entry-title">{{$blog->title}}</h2>
                                         </div>
                                         <div class="post-thumbnail-wrap">
